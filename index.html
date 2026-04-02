@@ -1001,7 +1001,7 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Logic<span>Rove</span></a>
-  <a href="https://logicrove.gumroad.com/l/logicrove-seo-audit" target="_blank" class="nav-pill">Get Started →</a>
+  <a href="#pricing" class="nav-pill">Get Started →</a>
 </nav>
 
 <!-- HERO -->
@@ -1087,7 +1087,7 @@ footer {
 
     <div class="download-bar">
       <p><strong>Want the full PDF report?</strong> Upgrade to Pro to download branded PDF reports you can send directly to clients.</p>
-      <button class="btn-download" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Download PDF Report</button>
+      <button class="btn-download" onclick="openModal()">Download PDF Report</button>
     </div>
   </div>
 </section>
@@ -1171,7 +1171,7 @@ footer {
         <li class="plan-feature">Monthly progress tracking</li>
         <li class="plan-feature">Priority support</li>
       </ul>
-      <button class="plan-btn plan-btn-primary" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Start Pro Trial →</button>
+      <button class="plan-btn plan-btn-primary" onclick="openModal('pro')">Start Pro Trial →</button>
     </div>
 
     <div class="pricing-card">
@@ -1187,7 +1187,7 @@ footer {
         <li class="plan-feature">API access</li>
         <li class="plan-feature">Dedicated account manager</li>
       </ul>
-      <button class="plan-btn plan-btn-primary" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Start Agency Trial →</button>
+      <button class="plan-btn plan-btn-primary" onclick="openModal('agency')">Start Agency Trial →</button>
     </div>
   </div>
 </section>
@@ -1302,7 +1302,7 @@ Based on the URL and domain, generate a realistic and specific SEO audit report.
 
 Make the analysis specific to the actual domain/niche. Be realistic and specific with issues and recommendations.`;
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("https://logicrove-api.kinmeng-lee1.workers.dev", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
