@@ -1250,7 +1250,7 @@ async function startAudit() {
     } else {
       clearInterval(stepInterval);
     }
-  }, 1800);
+  }, 900);
 
   try {
     const auditTypeLabels = {
@@ -1326,10 +1326,27 @@ Make the analysis specific to the actual domain/niche. Be realistic and specific
     renderReport(report, url);
 
   } catch(err) {
-    // Fallback demo report
     clearInterval(stepInterval);
-    const demoReport = generateDemoReport(url, auditType);
-    renderReport(demoReport, url);
+    console.error('Audit error:', err);
+    // Show error message instead of fake demo data
+    document.getElementById('loadingState').classList.remove('active');
+    document.getElementById('generateBtn').disabled = false;
+    steps.forEach(s => {
+      document.getElementById(s).classList.remove('active','done');
+    });
+    const grid = document.getElementById('reportGrid');
+    document.getElementById('reportTitle').textContent = 'Analysis Error';
+    document.getElementById('scoreValue').textContent = '--';
+    grid.innerHTML = `
+      <div class="report-card full-width">
+        <div class="report-card-title">Error Details</div>
+        <div style="color:var(--accent3); font-family:var(--mono); font-size:13px; padding:10px;">
+          ${err.message}<br><br>
+          Please wait 30 seconds and try again.
+        </div>
+      </div>`;
+    document.getElementById('reportContainer').classList.add('active');
+    return;
   }
 
   document.getElementById('loadingState').classList.remove('active');
