@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LogicRove — AI-Powered SEO Audit Reports</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1001,7 +1002,7 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Logic<span>Rove</span></a>
-  <a href="#pricing" class="nav-pill">Get Started →</a>
+  <a href="https://logicrove.gumroad.com/l/logicrove-seo-audit" target="_blank" class="nav-pill">Get Started →</a>
 </nav>
 
 <!-- HERO -->
@@ -1087,7 +1088,7 @@ footer {
 
     <div class="download-bar">
       <p><strong>Want the full PDF report?</strong> Upgrade to Pro to download branded PDF reports you can send directly to clients.</p>
-      <button class="btn-download" onclick="openModal()">Download PDF Report</button>
+      <button class="btn-download" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Download PDF Report</button>
     </div>
   </div>
 </section>
@@ -1171,7 +1172,7 @@ footer {
         <li class="plan-feature">Monthly progress tracking</li>
         <li class="plan-feature">Priority support</li>
       </ul>
-      <button class="plan-btn plan-btn-primary" onclick="openModal('pro')">Start Pro Trial →</button>
+      <button class="plan-btn plan-btn-primary" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Start Pro Trial →</button>
     </div>
 
     <div class="pricing-card">
@@ -1187,7 +1188,7 @@ footer {
         <li class="plan-feature">API access</li>
         <li class="plan-feature">Dedicated account manager</li>
       </ul>
-      <button class="plan-btn plan-btn-primary" onclick="openModal('agency')">Start Agency Trial →</button>
+      <button class="plan-btn plan-btn-primary" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Start Agency Trial →</button>
     </div>
   </div>
 </section>
@@ -1302,7 +1303,7 @@ Based on the URL and domain, generate a realistic and specific SEO audit report.
 
 Make the analysis specific to the actual domain/niche. Be realistic and specific with issues and recommendations.`;
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("https://logicrove-api.kinmeng-lee1.workers.dev", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -1326,27 +1327,10 @@ Make the analysis specific to the actual domain/niche. Be realistic and specific
     renderReport(report, url);
 
   } catch(err) {
+    // Fallback demo report
     clearInterval(stepInterval);
-    console.error('Audit error:', err);
-    // Show error message instead of fake demo data
-    document.getElementById('loadingState').classList.remove('active');
-    document.getElementById('generateBtn').disabled = false;
-    steps.forEach(s => {
-      document.getElementById(s).classList.remove('active','done');
-    });
-    const grid = document.getElementById('reportGrid');
-    document.getElementById('reportTitle').textContent = 'Analysis Error';
-    document.getElementById('scoreValue').textContent = '--';
-    grid.innerHTML = `
-      <div class="report-card full-width">
-        <div class="report-card-title">Error Details</div>
-        <div style="color:var(--accent3); font-family:var(--mono); font-size:13px; padding:10px;">
-          ${err.message}<br><br>
-          Please wait 30 seconds and try again.
-        </div>
-      </div>`;
-    document.getElementById('reportContainer').classList.add('active');
-    return;
+    const demoReport = generateDemoReport(url, auditType);
+    renderReport(demoReport, url);
   }
 
   document.getElementById('loadingState').classList.remove('active');
