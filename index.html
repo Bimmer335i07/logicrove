@@ -1000,6 +1000,114 @@ footer {
 .report-full {
   grid-column: 1 / -1;
 }
+
+/* PAYWALL MODAL */
+.paywall-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.paywall-overlay.active { display: flex; }
+
+.paywall-box {
+  background: var(--surface);
+  border: 1px solid rgba(26,82,220,0.4);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: fadeSlideUp 0.3s ease both;
+}
+
+.paywall-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.paywall-icon { font-size: 48px; margin-bottom: 16px; }
+
+.paywall-title {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.paywall-sub {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.paywall-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.paywall-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.paywall-features li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.paywall-btn {
+  width: 100%;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+
+.paywall-btn:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 8px 25px rgba(26,82,220,0.4);
+}
+
+.paywall-dismiss {
+  font-size: 13px;
+  color: var(--text-dimmer);
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.paywall-dismiss:hover { color: var(--text-dim); }
 </style>
 </head>
 <body>
@@ -1220,8 +1328,27 @@ footer {
   </div>
 </div>
 
+<!-- PAYWALL MODAL -->
+<div class="paywall-overlay" id="paywallOverlay">
+  <div class="paywall-box">
+    <div class="paywall-icon">🔒</div>
+    <div class="paywall-title">You've used your 3 free audits</div>
+    <p class="paywall-sub">Upgrade to Pro for unlimited audits, branded PDF reports you can send to clients, and competitor analysis.</p>
+    <ul class="paywall-features">
+      <li>Unlimited audits per month</li>
+      <li>Branded PDF export for clients</li>
+      <li>Full SEO + Technical + Competitor audit</li>
+      <li>40+ SEO signals checked</li>
+      <li>Priority support</li>
+    </ul>
+    <button class="paywall-btn" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Upgrade to Pro — $49/month →</button>
+    <button class="paywall-dismiss" onclick="closePaywall()">Maybe later</button>
+  </div>
+</div>
+
 <script>
 const CLAUDE_MODEL = "claude-sonnet-4-20250514";
+const PRO_TOKEN = ''; // Empty for free users. Gumroad buyers receive their token by email.
 
 async function startAudit() {
   const url = document.getElementById('urlInput').value.trim();
@@ -1305,9 +1432,12 @@ Based on the URL and domain, generate a realistic and specific SEO audit report.
 
 Make the analysis specific to the actual domain/niche. Be realistic and specific with issues and recommendations.`;
 
+    const headers = { "Content-Type": "application/json" };
+    if (PRO_TOKEN) headers["X-Pro-Token"] = PRO_TOKEN;
+
     const response = await fetch("https://logicrove-api.kinmeng-lee1.workers.dev", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
         model: CLAUDE_MODEL,
         max_tokens: 1000,
@@ -1321,26 +1451,52 @@ Make the analysis specific to the actual domain/niche. Be realistic and specific
       document.getElementById(s).classList.add('done');
     });
 
+    // Handle rate limit — show paywall modal
+    if (response.status === 429) {
+      document.getElementById('loadingState').classList.remove('active');
+      document.getElementById('generateBtn').disabled = false;
+      steps.forEach(s => document.getElementById(s).classList.remove('active','done'));
+      showPaywallModal();
+      return;
+    }
+
     const data = await response.json();
+
+    // Check if rate limit came back in the JSON body
+    if (data.error === 'rate_limit_exceeded') {
+      document.getElementById('loadingState').classList.remove('active');
+      document.getElementById('generateBtn').disabled = false;
+      steps.forEach(s => document.getElementById(s).classList.remove('active','done'));
+      showPaywallModal();
+      return;
+    }
+
+    const isPro = data._isPro === true;
     const text = data.content.map(i => i.text || '').join('');
     const clean = text.replace(/```json|```/g, '').trim();
     const report = JSON.parse(clean);
 
-    renderReport(report, url);
+    renderReport(report, url, isPro);
 
   } catch(err) {
     clearInterval(stepInterval);
-    const demoReport = generateDemoReport(url, auditType);
-    renderReport(demoReport, url);
+    renderReport(generateDemoReport(url, auditType), url, false);
   }
 
   document.getElementById('loadingState').classList.remove('active');
   document.getElementById('generateBtn').disabled = false;
-  steps.forEach(s => {
-    document.getElementById(s).classList.remove('active','done');
-  });
+  steps.forEach(s => document.getElementById(s).classList.remove('active','done'));
   document.getElementById('reportContainer').classList.add('active');
   document.getElementById('reportContainer').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function showPaywallModal() {
+  const overlay = document.getElementById('paywallOverlay');
+  overlay.classList.add('active');
+}
+
+function closePaywall() {
+  document.getElementById('paywallOverlay').classList.remove('active');
 }
 
 function generateDemoReport(url, type) {
@@ -1382,7 +1538,7 @@ function generateDemoReport(url, type) {
   };
 }
 
-function renderReport(report, url) {
+function renderReport(report, url, isPro) {
   document.getElementById('reportTitle').textContent = report.title || `SEO Audit — ${url}`;
 
   const scoreEl = document.getElementById('scoreValue');
@@ -1408,6 +1564,120 @@ function renderReport(report, url) {
       <div class="recommendation-list">${renderRecs(report.recommendations)}</div>
     </div>
   `;
+
+  // Update download bar based on pro status
+  const downloadBar = document.querySelector('.download-bar');
+  if (isPro) {
+    downloadBar.innerHTML = `
+      <p><strong>Pro Plan Active.</strong> Download your branded PDF report below.</p>
+      <button class="btn-download" onclick="downloadPDF()">Download PDF Report</button>
+    `;
+  } else {
+    downloadBar.innerHTML = `
+      <p><strong>Want the full PDF report?</strong> Upgrade to Pro to download branded PDF reports you can send directly to clients.</p>
+      <button class="btn-download" onclick="window.open('https://logicrove.gumroad.com/l/logicrove-seo-audit', '_blank')">Upgrade to Pro →</button>
+    `;
+  }
+
+  // Store report data for PDF generation
+  window._currentReport = report;
+  window._currentUrl = url;
+}
+
+function downloadPDF() {
+  const report = window._currentReport;
+  const url = window._currentUrl;
+  if (!report) return;
+
+  const printWindow = window.open('', '_blank');
+  const scoreColors = { good: '#1A52DC', mid: '#ffb800', bad: '#ff3d6e' };
+  const color = scoreColors[report.scoreColor] || '#1A52DC';
+
+  const issueHTML = (issues) => issues.map(i => {
+    const dotColor = i.type === 'critical' ? '#ff3d6e' : i.type === 'warning' ? '#ffb800' : '#1A52DC';
+    return `<div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:${dotColor};margin-top:5px;flex-shrink:0;"></div>
+      <span style="font-size:13px;color:#333;line-height:1.5;">${i.text}</span>
+    </div>`;
+  }).join('');
+
+  const recHTML = (recs) => {
+    const cls = { HIGH: '#ff3d6e', MED: '#ffb800', LOW: '#1A52DC' };
+    return recs.map(r => `
+      <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#f8f9ff;border-radius:8px;margin-bottom:8px;border:1px solid #e8ecff;">
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:${cls[r.priority]}22;color:${cls[r.priority]};border:1px solid ${cls[r.priority]}44;white-space:nowrap;margin-top:2px;">${r.priority}</span>
+        <span style="font-size:13px;color:#333;line-height:1.5;">${r.text}</span>
+      </div>`).join('');
+  };
+
+  printWindow.document.write(`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LogicRove SEO Report — ${url}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; padding: 40px; }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #1A52DC; padding-bottom: 20px; margin-bottom: 30px; }
+  .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
+  .logo span { color: #1A52DC; }
+  .tagline { font-size: 11px; color: #888; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+  .score-box { text-align: center; }
+  .score-num { font-size: 56px; font-weight: 900; color: ${color}; line-height: 1; }
+  .score-label { font-size: 11px; color: #888; letter-spacing: 0.1em; text-transform: uppercase; }
+  .report-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .report-meta { font-size: 12px; color: #888; margin-bottom: 30px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .card { background: #f8f9ff; border: 1px solid #e0e7ff; border-radius: 12px; padding: 20px; }
+  .card-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1A52DC; margin-bottom: 14px; }
+  .full-width { grid-column: 1 / -1; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 11px; color: #aaa; }
+  @media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="logo">Logic<span>Rove</span></div>
+    <div class="tagline">AI · SEO · Intelligence</div>
+  </div>
+  <div class="score-box">
+    <div class="score-num">${report.score}</div>
+    <div class="score-label">SEO Score</div>
+  </div>
+</div>
+
+<div class="report-title">${report.title}</div>
+<div class="report-meta">Generated by LogicRove AI · ${new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})} · Pro Plan</div>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-title">📄 On-Page SEO</div>
+    ${issueHTML(report.onPage.issues)}
+  </div>
+  <div class="card">
+    <div class="card-title">⚙️ Technical SEO</div>
+    ${issueHTML(report.technical.issues)}
+  </div>
+  <div class="card">
+    <div class="card-title">🔑 Keyword Signals</div>
+    ${issueHTML(report.keywords.issues)}
+  </div>
+  <div class="card full-width">
+    <div class="card-title">📈 Priority Recommendations</div>
+    ${recHTML(report.recommendations)}
+  </div>
+</div>
+
+<div class="footer">
+  <span>LogicRove · logicrove.com · hello&#64;logicrove&#46;com</span>
+  <span>Confidential · Generated for Pro subscriber</span>
+</div>
+
+<script>window.onload = function() { window.print(); }<\/script>
+</body>
+</html>`);
+  printWindow.document.close();
 }
 
 function renderIssues(issues) {
