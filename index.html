@@ -1439,6 +1439,7 @@ Make the analysis specific to the actual domain/niche. Be realistic and specific
       method: "POST",
       headers,
       body: JSON.stringify({
+        url: url,
         model: CLAUDE_MODEL,
         max_tokens: 1000,
         messages: [{ role: "user", content: prompt }]
