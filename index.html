@@ -1472,15 +1472,14 @@ Make the analysis specific to the actual domain/niche. Be realistic and specific
     }
 
     const isPro = data._isPro === true;
-    const text = data.content.map(i => i.text || '').join('');
-    const clean = text.replace(/```json|```/g, '').trim();
-    const report = JSON.parse(clean);
-
-    renderReport(report, url, isPro);
+    renderReport(data, url, isPro);
 
   } catch(err) {
     clearInterval(stepInterval);
-    renderReport(generateDemoReport(url, auditType), url, false);
+    document.getElementById('loadingState').classList.remove('active');
+    document.getElementById('generateBtn').disabled = false;
+    steps.forEach(s => document.getElementById(s).classList.remove('active','done'));
+    alert('Audit failed — please try again.');
   }
 
   document.getElementById('loadingState').classList.remove('active');
