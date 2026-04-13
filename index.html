@@ -140,7 +140,18 @@
     letter-spacing: -0.01em;
   }
 
-  .mark img { height: 28px; width: auto; }
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+
+  .mark img { height: 48px; width: auto; }
 
   .topnav {
     display: flex;
@@ -151,17 +162,20 @@
 
   .topnav a { color: var(--ink-soft); font-weight: 500; }
 
-  .topcta {
+  .topnav a.topcta {
     background: var(--navy);
     color: var(--cream);
-    padding: 10px 20px;
+    padding: 12px 22px;
     border-radius: 2px;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.01em;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
   }
-  .topcta:hover { background: var(--gold); color: var(--cream); }
+  .topnav a.topcta:hover {
+    background: var(--gold);
+    color: var(--cream);
+  }
 
   /* ——— Hero ——— */
   .hero {
