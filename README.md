@@ -1,15 +1,36 @@
 # LogicRove
 
-AI search visibility audits for law firms.
+AI visibility audits for personal injury law firms.
 
-We audit how ChatGPT, Perplexity, Gemini, and Google AI Overviews represent your firm when prospects ask for a recommendation. Delivered as a written 12 to 18 page report in 48 hours.
+When someone asks ChatGPT or Google:
+“Best personal injury lawyer in [city]”
 
-Live at [logicrove.com](https://logicrove.com).
+Only a few firms are recommended.
+
+Those firms get the cases. The rest are never considered.
+
+LogicRove analyzes how AI systems are representing your firm, and shows exactly where you stand.
+
+Each audit documents:
+
+* How your firm appears across ChatGPT and Google AI Overviews
+* Which competitors are being recommended instead
+* What signals are causing you to be excluded
+* What needs to change to improve visibility
+
+Delivered as a 12 to 18 page report within 48 hours.
 
 ---
 
-**The Audit**  $497, one time
-**The Retainer**  $1,497, quarterly
+**The Audit**
+$497, one time
 
-Order at [logicrove.com](https://logicrove.com)
-Contact: scott.lee@logicrove.com
+**The Retainer**
+$1,497, every 90 days
+
+---
+
+Check if your firm is being recommended:
+https://logicrove.com
+
+Contact: [hello@logicrove.com](mailto:hello@logicrove.com)
