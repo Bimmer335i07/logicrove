@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Operator&rsquo;s Brief  Healthcare IT Intelligence for Operators  LogicRove</title>
+<meta name="description" content="A weekly healthcare IT intelligence digest for CIOs, CMIOs, and the operators who actually run hospital and imaging IT. No vendor press releases. Every story changes an operator decision. Published by LogicRove." />
+<meta property="og:title" content="The Operator's Brief  Healthcare IT Intelligence for Operators" />
+<meta property="og:description" content="A weekly intelligence digest for the people who actually run healthcare IT. Published by LogicRove." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brief.logicrove.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+<style>
+  :root {
+    --cream: #F5EDD8;
+    --cream-deep: #EFE6CE;
+    --navy: #0B1E3F;
+    --navy-soft: #1C2E4F;
+    --gold: #B08D45;
+    --gold-dark: #8C6F36;
+    --rule: #C8B88A;
+    --ink: #1A1A1A;
+    --ink-soft: #3B3B3B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+  .serif { font-family: "Fraunces", Georgia, serif; font-optical-sizing: auto; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  a { color: var(--navy); text-decoration: underline; text-decoration-thickness: 0.5px; text-underline-offset: 3px; }
+  a:hover { color: var(--gold-dark); }
+
+  /* Top bar */
+  .topbar {
+    border-top: 1.5px solid var(--gold);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 14px 0;
+    margin-bottom: 60px;
+  }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .topbar .mono { font-size: 12px; letter-spacing: 0.12em; color: var(--gold-dark); text-transform: uppercase; }
+  .topbar .pub { color: var(--ink-soft); }
+
+  /* Masthead */
+  .masthead { padding: 20px 0 50px; }
+  .kicker { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.18em; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 18px; }
+  h1.title { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 76px; line-height: 1; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 14px; }
+  .subtitle { font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 400; font-size: 24px; line-height: 1.35; color: var(--navy-soft); margin-bottom: 26px; max-width: 680px; }
+  .rule-gold { height: 1.5px; background: var(--gold); border: 0; margin: 30px 0; }
+  .rule-thin { height: 0.5px; background: var(--rule); border: 0; margin: 36px 0; }
+
+  /* Hero lede */
+  .lede { font-size: 19px; line-height: 1.55; color: var(--ink); max-width: 720px; margin-bottom: 14px; }
+  .lede strong { font-weight: 600; color: var(--navy); }
+
+  /* CTA block */
+  .cta-block {
+    background: var(--cream-deep);
+    border: 0.5px solid var(--rule);
+    border-radius: 2px;
+    padding: 32px 34px;
+    margin: 40px 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .cta-label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-dark); text-transform: uppercase; }
+  .cta-headline { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 26px; line-height: 1.25; color: var(--navy); }
+  .cta-price-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .price { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 40px; color: var(--navy); letter-spacing: -0.01em; }
+  .price-unit { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--ink-soft); letter-spacing: 0.06em; }
+  .btn {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 14px 28px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid var(--navy);
+    transition: background 0.18s ease, color 0.18s ease;
+    width: fit-content;
+  }
+  .btn:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: var(--cream); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    font-weight: 500;
+  }
+  .btn-ghost:hover { background: var(--navy); color: var(--cream); }
+  .cta-note { font-family: "Inter", sans-serif; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+
+  /* Section */
+  section { padding: 48px 0; }
+  .section-label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  h2.section-title { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 36px; line-height: 1.15; color: var(--navy); margin-bottom: 18px; letter-spacing: -0.005em; }
+  h3.sub { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 22px; line-height: 1.3; color: var(--navy); margin: 24px 0 10px; }
+  p { margin-bottom: 14px; }
+
+  /* What you get list */
+  .what-list { list-style: none; padding: 0; }
+  .what-list li {
+    padding: 18px 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .what-list li:last-child { border-bottom: 0; }
+  .what-num { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 13px; color: var(--gold-dark); letter-spacing: 0.08em; }
+  .what-title { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 19px; color: var(--navy); margin-bottom: 4px; display: block; }
+  .what-body { font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); }
+
+  /* Sample section */
+  .sample-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+  .sample-card {
+    background: var(--cream-deep);
+    border: 0.5px solid var(--rule);
+    padding: 28px;
+    border-radius: 2px;
+  }
+  .sample-title { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 20px; color: var(--navy); margin-bottom: 10px; }
+  .sample-list { list-style: none; padding: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); }
+  .sample-list li { padding-left: 16px; position: relative; }
+  .sample-list li:before { content: "\2022"; position: absolute; left: 0; color: var(--gold); }
+
+  /* Pricing grid */
+  .tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .tier {
+    border: 0.5px solid var(--rule);
+    background: var(--cream-deep);
+    padding: 30px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier.featured { border: 1.5px solid var(--gold); background: var(--cream-deep); }
+  .tier-name { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 14px; }
+  .tier-price { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 46px; color: var(--navy); line-height: 1; letter-spacing: -0.01em; }
+  .tier-unit { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.06em; display: block; margin-top: 6px; margin-bottom: 18px; }
+  .tier-features { list-style: none; padding: 0; margin: 0 0 24px; font-size: 15px; line-height: 1.55; color: var(--ink); flex: 1; }
+  .tier-features li { padding: 7px 0 7px 18px; position: relative; }
+  .tier-features li:before { content: "\2713"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  /* About the editor */
+  .editor {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 52px 44px;
+    border-radius: 2px;
+    margin: 40px 0;
+  }
+  .editor .section-label { color: var(--gold); opacity: 0.9; }
+  .editor h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 28px; color: var(--cream); margin: 6px 0 18px; }
+  .editor p { color: var(--cream); opacity: 0.92; font-size: 16px; line-height: 1.6; }
+  .editor a { color: var(--gold); text-decoration-color: var(--gold); }
+
+  /* FAQ */
+  details {
+    border-bottom: 0.5px solid var(--rule);
+    padding: 18px 0;
+  }
+  details summary {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 30px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary:after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 22px;
+    color: var(--gold-dark);
+    font-weight: 400;
+  }
+  details[open] summary:after { content: "\2013"; }
+  details .answer { padding-top: 12px; font-size: 15.5px; line-height: 1.6; color: var(--ink-soft); }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding: 40px 0 32px;
+    border-top: 1.5px solid var(--gold);
+  }
+  footer .wrap { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 24px; }
+  footer .mono { font-size: 11px; letter-spacing: 0.12em; color: var(--ink-soft); text-transform: uppercase; line-height: 1.8; }
+  footer a { color: var(--ink-soft); }
+
+  /* Mobile */
+  @media (max-width: 700px) {
+    h1.title { font-size: 48px; }
+    .subtitle { font-size: 19px; }
+    h2.section-title { font-size: 28px; }
+    .sample-row, .tiers { grid-template-columns: 1fr; }
+    .editor { padding: 36px 28px; }
+    .wrap { padding: 0 22px; }
+    .topbar .wrap { gap: 10px; }
+    .topbar .mono { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="mono">Vol. I &#183; No. 01 &#183; Private Intelligence</span>
+    <span class="mono pub">Published by LogicRove</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="kicker">A weekly intelligence digest for healthcare IT</div>
+    <h1 class="title serif">The Operator&rsquo;s Brief</h1>
+    <p class="subtitle">Healthcare IT intelligence for the people who actually run it.</p>
+    <hr class="rule-gold" />
+    <p class="lede"><strong>Every Thursday morning, one document.</strong> Five sections. Two thousand words. What moved in healthcare IT this week, what is moving next week, and what the movement means for the people who run hospital and imaging IT. No vendor press release stenography. If a story does not change an operator decision, it is not in the Brief.</p>
+    <p class="lede">Written for CIOs, CMIOs, VPs of clinical IT, directors of radiology informatics, revenue cycle leads, interop architects, and security officers. The people whose phones ring when something breaks.</p>
+  </header>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <div class="cta-label">Subscribe  Issue 01 ships today</div>
+    <div class="cta-headline serif">The Operator&rsquo;s Brief, weekly.</div>
+    <div class="cta-price-row">
+      <span class="price serif">$497</span>
+      <span class="price-unit">per year  52 issues</span>
+    </div>
+    <a class="btn" href="https://buy.stripe.com/fZu00b9hE8dya3V7mX38402">Subscribe to the Brief</a>
+    <p class="cta-note">Delivered every Thursday by 8:00 AM ET. Read sample Issue 01 before you decide. <a href="#sample">See the sample issue below.</a></p>
+  </div>
+
+</div>
+
+<!-- WHAT YOU GET -->
+<section>
+  <div class="wrap">
+    <div class="section-label">01  &#183;  What you get</div>
+    <h2 class="section-title serif">One document. Five sections. Thursday morning.</h2>
+
+    <ul class="what-list">
+      <li>
+        <div class="what-num">01.</div>
+        <div>
+          <span class="what-title">This Week in Healthcare IT</span>
+          <div class="what-body">The five stories that changed an operator decision this week. Rules, rollouts, platform moves, and the incidents that matter. With operator context, not vendor framing.</div>
+        </div>
+      </li>
+      <li>
+        <div class="what-num">02.</div>
+        <div>
+          <span class="what-title">Market Moves</span>
+          <div class="what-body">Capital, M&amp;A, and partnership deals that reshape the buying landscape. What the deals mean for your renewal cycles, your shortlists, and your contract leverage.</div>
+        </div>
+      </li>
+      <li>
+        <div class="what-num">03.</div>
+        <div>
+          <span class="what-title">Breach Board</span>
+          <div class="what-body">Every significant new healthcare breach filed this week with named organizations, threat actors, and root cause where disclosed. Plus the operator takeaway.</div>
+        </div>
+      </li>
+      <li>
+        <div class="what-num">04.</div>
+        <div>
+          <span class="what-title">Executive Moves</span>
+          <div class="what-body">Who moved into a CIO, CMIO, CRIO, or CISO seat that matters. What the appointment signals about the organization&rsquo;s direction.</div>
+        </div>
+      </li>
+      <li>
+        <div class="what-num">05.</div>
+        <div>
+          <span class="what-title">The Focus</span>
+          <div class="what-body">One deeper read per issue. An analytical piece pulling the week&rsquo;s threads into a pattern operators can act on.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule-thin" style="max-width:880px;margin:20px auto;" />
+
+<!-- SAMPLE -->
+<section id="sample">
+  <div class="wrap">
+    <div class="section-label">02  &#183;  Read Issue 01</div>
+    <h2 class="section-title serif">What&rsquo;s in the first issue.</h2>
+    <p style="max-width:720px;margin-bottom:32px;color:var(--ink-soft);font-size:16px;line-height:1.6;">Issue 01 covers April 9 through April 16, 2026. A week dominated by a federal platform launch, a prior authorization rule with real standards inside it, a quiet restart of the largest EHR rollout in history, two imaging IT consolidation deals, and a record breaking first quarter of healthcare ransomware.</p>
+
+    <div class="sample-row">
+      <div class="sample-card">
+        <div class="sample-title serif">This week</div>
+        <ul class="sample-list">
+          <li>CMS HealthTech Ecosystem launch, April 9</li>
+          <li>Prior auth rule extended to Part B drugs</li>
+          <li>VA restarts Oracle Health EHR at 4 Michigan facilities</li>
+          <li>FBI IC3 report: 278 healthcare ransomware attacks in 2025</li>
+          <li>Brockton Hospital downtime, ongoing</li>
+        </ul>
+      </div>
+      <div class="sample-card">
+        <div class="sample-title serif">Market moves</div>
+        <ul class="sample-list">
+          <li>Qualified Health $125M Series B, NEA led</li>
+          <li>Avo $10M Series A, Noro Moseley</li>
+          <li>hopper OS acquires Efferent Media</li>
+          <li>Siemens 10 year Value Partnership with Onvida</li>
+          <li>Premier Radiology acquires GLOBIS</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a class="btn btn-ghost" href="/OperatorsBrief_Issue1_2026-04-16.pdf" target="_blank">Read the sample issue (PDF)</a>
+      <a class="btn" href="https://buy.stripe.com/fZu00b9hE8dya3V7mX38402">Subscribe, $497 per year</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule-thin" style="max-width:880px;margin:20px auto;" />
+
+<!-- EDITOR -->
+<div class="wrap">
+  <div class="editor">
+    <div class="section-label">03  &#183;  The editor</div>
+    <h3 class="serif">Scott Lee. Twelve years in radiology IT.</h3>
+    <p>The Operator&rsquo;s Brief is edited by Scott Lee, founder of LogicRove. Scott spent twelve years at RadNet, most recently running clinical IT optimization across one of the largest outpatient imaging networks in the United States. He built the Brief because every existing healthcare IT newsletter is either vendor press release stenography or analyst commentary written by people who have never run a PACS refresh or taken a call at 2 AM during a downtime. Operators need something different.</p>
+    <p style="margin-top:14px;">LogicRove is a private intelligence firm covering healthcare IT and AI Search Visibility. Based in New York. Reach the editor at <a href="mailto:scott.lee@logicrove.com">scott.lee@logicrove.com</a>.</p>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="subscribe">
+  <div class="wrap">
+    <div class="section-label">04  &#183;  Subscribe</div>
+    <h2 class="section-title serif">Two ways to read the Brief.</h2>
+    <p style="max-width:680px;color:var(--ink-soft);font-size:16px;">Individual and team subscriptions. No enterprise sales process. No annual contract minimums beyond the year you pay for.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Individual</div>
+        <div class="tier-price serif">$497</div>
+        <span class="tier-unit">per year  52 issues</span>
+        <ul class="tier-features">
+          <li>Every Thursday, 8:00 AM ET</li>
+          <li>Full PDF and email delivery</li>
+          <li>Searchable issue archive</li>
+          <li>Tip line to the editor</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/fZu00b9hE8dya3V7mX38402">Subscribe</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-name">Principal</div>
+        <div class="tier-price serif">$997</div>
+        <span class="tier-unit">per year  52 issues + quarterly call</span>
+        <ul class="tier-features">
+          <li>Everything in Individual</li>
+          <li>Quarterly 30 minute call with the editor</li>
+          <li>Priority tip line response</li>
+          <li>Redistribution rights to your direct team</li>
+          <li>Name on the masthead</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/4gM00beBY65q6RJ6iT38403">Subscribe</a>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;color:var(--ink-soft);font-size:14px;">Full refund, no questions, within the first 30 days. Billing handled by Stripe. Receipts and W9 on request for expense submission.</p>
+  </div>
+</section>
+
+<hr class="rule-thin" style="max-width:880px;margin:20px auto;" />
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-label">05  &#183;  Questions</div>
+    <h2 class="section-title serif">A few things operators ask.</h2>
+
+    <details>
+      <summary>Who is this for?</summary>
+      <div class="answer">Senior healthcare IT operators. Hospital CIOs and CMIOs, health system CISOs, imaging center IT directors, payer IT leaders, revenue cycle operators, and the VPs who run under them. If your work is to keep a health system&rsquo;s IT operational and moving forward, the Brief is written for you.</div>
+    </details>
+
+    <details>
+      <summary>How is this different from the newsletters I already get?</summary>
+      <div class="answer">Most healthcare IT newsletters either reprint vendor press releases with a two sentence intro, or publish analyst commentary written by people who have never actually run a system. The Brief does neither. Every story is chosen because it changes an operator decision, and every story is written with operator context by an editor who has run the work.</div>
+    </details>
+
+    <details>
+      <summary>Can I expense this?</summary>
+      <div class="answer">Yes. Invoices and W9 are available on request. Most subscribers expense this under continuing education, industry intelligence, or executive subscriptions. We will send any documentation your AP team needs.</div>
+    </details>
+
+    <details>
+      <summary>Do you take vendor sponsorship?</summary>
+      <div class="answer">No. The Brief is subscriber funded and will remain subscriber funded. No vendor pays to be mentioned, and no vendor can pay to have a story omitted. The editor will take pitches for context on deals or trends, but every inclusion decision is editorial.</div>
+    </details>
+
+    <details>
+      <summary>What if the Brief is not useful to me?</summary>
+      <div class="answer">Full refund within the first 30 days, no questions. After that, cancel anytime and the subscription does not auto renew without your confirmation.</div>
+    </details>
+
+    <details>
+      <summary>How do I get in touch with the editor?</summary>
+      <div class="answer">Email <a href="mailto:scott.lee@logicrove.com">scott.lee@logicrove.com</a>. Subscribers get a direct reply. Tip lines are prioritized for Principal tier.</div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mono">
+      <strong style="color:var(--navy);font-family:'Fraunces',serif;font-weight:700;font-size:14px;letter-spacing:0;">The Operator&rsquo;s Brief</strong><br />
+      Published by LogicRove<br />
+      New York, New York
+    </div>
+    <div class="mono">
+      <a href="mailto:hello@logicrove.com">hello@logicrove.com</a><br />
+      <a href="https://logicrove.com">logicrove.com</a><br />
+      &copy; 2026 LogicRove LLC
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
