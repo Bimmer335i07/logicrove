@@ -261,25 +261,34 @@
     border-color: var(--gold);
   }
 
+  /* ——— Meta line ——— */
   .meta-line {
     margin-top: 56px;
     display: flex;
-    gap: 40px;
+    gap: 56px;
     flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--ink-soft);
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
   }
+
+  .meta-line div {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
   .meta-line .label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--gold);
-    display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-weight: 500;
   }
 
-  /* ——— Section framing ——— */
+  /* ——— Section ——— */
   section {
     padding: 100px 0;
     border-top: 1px solid var(--rule);
@@ -288,119 +297,111 @@
   .section-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.18em;
     text-transform: uppercase;
+    letter-spacing: 0.22em;
     color: var(--gold);
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .section-label::before {
-    content: "§";
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    color: var(--gold);
+    font-weight: 500;
   }
 
   .section-title {
-    max-width: 760px;
-    margin-bottom: 60px;
+    margin-bottom: 16px;
   }
 
-  /* ——— The Problem ——— */
+  /* ——— Problem / Stats ——— */
   .problem-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 60px;
+    margin-top: 48px;
   }
 
   .stat {
-    padding: 40px 36px 40px 0;
+    padding: 32px 0px 16px;
     border-right: 1px solid var(--rule);
   }
-  .stat:last-child { border-right: none; padding-right: 0; }
-  .stat:nth-child(n+2) { padding-left: 36px; }
+  .stat:last-child { border-right: none; }
+  .stat:nth-child(n+2) { padding-left: 40px; }
 
   .stat-number {
     font-family: 'Fraunces', serif;
-    font-size: 68px;
+    font-size: 64px;
     font-weight: 300;
     line-height: 1;
     color: var(--navy);
     font-variation-settings: "opsz" 144;
-    letter-spacing: -0.03em;
   }
   .stat-number sup {
-    font-size: 26px;
-    font-weight: 400;
+    font-size: 28px;
     vertical-align: super;
     color: var(--gold);
-    margin-left: 4px;
+    font-weight: 400;
   }
 
   .stat-caption {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    margin-top: 14px;
+    line-height: 1.55;
     color: var(--ink-soft);
   }
 
   .stat-source {
-    margin-top: 12px;
+    margin-top: 16px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.05em;
     color: var(--gold);
-    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  /* ——— The Findings / What We Audit ——— */
+  /* ——— Findings ——— */
   .findings {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 72px 80px;
-    margin-top: 40px;
+    gap: 64px;
+    margin-top: 48px;
   }
 
   .finding {
-    position: relative;
-    padding-left: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
   }
 
   .finding-num {
-    position: absolute;
-    left: 0;
-    top: 4px;
     font-family: 'Fraunces', serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
+    letter-spacing: 0.2em;
     color: var(--gold);
-    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
   }
 
-  .finding h3 {
-    margin-bottom: 14px;
-    color: var(--navy);
-  }
+  .finding h3 { margin-bottom: 14px; }
 
   .finding p {
     font-size: 15px;
     line-height: 1.65;
   }
 
-  /* ——— Sample finding (pull-quote style) ——— */
+  /* ——— Sample finding ——— */
   .sample {
-    background: var(--cream-deep);
-    padding: 80px 0;
-    border-top: 1px solid var(--rule);
+    background: var(--navy);
+    color: var(--cream);
+    padding: 100px 0;
   }
 
   .sample-inner {
-    max-width: 880px;
+    max-width: 760px;
     margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .sample-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    bordero;
     padding: 0 40px;
   }
 
@@ -692,6 +693,78 @@
     color: rgba(246, 241, 230, 0.5);
   }
 
+  /* ——— About ——— */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 48px;
+  }
+
+  .about-bio h3 {
+    margin-bottom: 16px;
+  }
+
+  .about-bio p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .about-principles {
+    padding-left: 32px;
+    border-left: 1px solid var(--rule);
+  }
+
+  .principle {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .principle:last-child { border-bottom: none; }
+
+  .principle-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .principle p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ——— FAQ ——— */
+  .faq-list {
+    max-width: 760px;
+    margin-top: 48px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 32px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--rule); }
+
+  .faq-q {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.3;
+    font-variation-settings: "opsz" 48;
+  }
+
+  .faq-a {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
   /* ——— Mobile ——— */
   @media (max-width: 820px) {
     .topnav { gap: 16px; }
@@ -707,6 +780,8 @@
     .pricing-wrap { grid-template-columns: 1fr; }
     .tier { padding: 40px 28px; }
     .tier:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-principles { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 32px; }
     .foot-grid { grid-template-columns: 1fr; gap: 40px; padding-bottom: 40px; }
     .foot-base { flex-direction: column; gap: 16px; align-items: flex-start; }
     .wrap, .narrow { padding: 0 24px; }
@@ -728,8 +803,9 @@
 </div>
     <nav class="topnav">
       <a href="#audit">The Audit</a>
+      <a href="/brief/">The Brief</a>
       <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
+      <a href="#about">About</a>
       <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401" class="topcta">Order Audit</a>
     </nav>
   </div>
@@ -876,6 +952,82 @@ You don’t need another SEO report. You need to know why AI is choosing other f
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">Who we are</div>
+    <h2 class="section-title">Independent research. No retainer. No conflict of interest.</h2>
+
+    <div class="about-grid">
+      <div class="about-bio">
+        <h3>Founded by Scott Lee</h3>
+        <p>Before LogicRove, I spent twelve years at RadNet, the largest outpatient imaging network in the United States. Over 400 centers. Eleven thousand employees. Eleven million procedures a year.</p>
+        <p>My job was making complex technology decisions under real operational pressure: PACS migrations, EHR integrations, endpoint security across hundreds of sites. I learned that the best decisions start with an honest assessment of where you actually stand, not where you think you stand.</p>
+        <p>LogicRove applies that same principle to a new problem. AI search engines are now the first place people go when they need a lawyer. Most firms have no idea how they appear in those results. We write the report that tells them.</p>
+      </div>
+
+      <div class="about-principles">
+        <div class="principle">
+          <div class="principle-label">Research firm, not an agency</div>
+          <p>We do not manage your SEO. We do not run your ads. We write one independent document about where your firm stands in AI search, and what to do about it. Your existing marketing team executes the recommendations.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-label">No retainer required</div>
+          <p>The single audit is a complete deliverable. There is no upsell call at the end. No pressure to sign a monthly contract. If the report is useful and you want quarterly monitoring, that option exists. But it is never a requirement.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-label">Every finding is sourced</div>
+          <p>Every claim in the report includes the prompt that generated it, the AI platform that responded, the date and time of the trial, and the full text of the response. Nothing is asserted without evidence you can verify yourself.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-label">Human reviewed</div>
+          <p>The data collection uses multiple AI platforms. The analysis, writing, and recommendations are reviewed by a human before delivery. You are reading the judgment of a researcher, not the output of another AI tool.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-label">Common questions</div>
+    <h2 class="section-title">What firms ask before commissioning the audit.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How is this different from an SEO audit?</div>
+        <p class="faq-a">An SEO audit measures how your site performs in traditional Google search: rankings, backlinks, page speed, keyword density. This audit measures something different entirely. It measures how AI systems like ChatGPT, Perplexity, and Google AI Overviews describe, recommend, and cite your firm when a prospective client asks for help. The ranking factors are different. The optimization strategies are different. Most SEO agencies are not yet equipped to diagnose AI visibility problems because the field is still in its early stages.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">My firm already ranks well on Google. Do I still need this?</div>
+        <p class="faq-a">Google ranking and AI recommendation are two separate systems. A firm can hold the number one organic position for "personal injury lawyer in Houston" and still be absent from ChatGPT and Perplexity responses for the same query. AI models pull from different signals: structured data, E-E-A-T markers, citation sources, and schema markup that traditional SEO does not always address. The audit shows you whether your Google success is translating into AI visibility, or whether competitors are capturing that new channel while you assume you are covered.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Other companies offer free AI visibility checks. Why pay $497?</div>
+        <p class="faq-a">Free audits exist to generate leads for agency retainers that cost $5,000 to $20,000 per month. They surface a handful of findings, enough to create urgency, then steer you toward a long term contract. Our audit is the complete deliverable. Twelve to eighteen pages, five named competitors analyzed alongside your firm, every AI platform tested, every prompt and response documented. There is no sales call at the end. No retainer pitch. You receive the full picture and decide what to do with it on your own terms.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can my current marketing agency do this for me?</div>
+        <p class="faq-a">They can execute the recommendations. That is exactly what the remediation list is designed for. But most marketing agencies do not yet have the methodology to diagnose AI visibility gaps, because the tools and techniques are still emerging. The audit gives your agency a clear, prioritized list of what to fix. Think of it as a second opinion from a specialist before your general practitioner begins treatment.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What do I do with the report after I receive it?</div>
+        <p class="faq-a">Hand the prioritized remediation list to whoever manages your firm's web presence. Every item includes plain language instructions and an impact rating. Most firms see their first improvements within 30 to 60 days of implementing the top five recommendations. If you do not have a web team, the report includes enough detail for any competent freelancer or agency to execute without additional context.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What if AI recommends my firm already?</div>
+        <p class="faq-a">Then the audit confirms your position and shows you exactly why you are being recommended, so you can protect that advantage. It also identifies where competitors are gaining ground and where your visibility is weakest across different prompt types. Knowing you are ahead is useful. Knowing exactly where and by how much is actionable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
@@ -951,16 +1103,18 @@ You don’t need another SEO report. You need to know why AI is choosing other f
       <p class="foot-bio">Independent research on how AI search engines find, judge, and recommend law firms. Headquartered in the United States. Serving firms across North America.</p>
     </div>
     <div class="foot-col">
-      <h4>The Audit</h4>
-      <a href="#audit">What is inside</a>
+      <h4>Research</h4>
+      <a href="#audit">The Audit</a>
+      <a href="/brief/">The Operator's Brief</a>
       <a href="#process">How it works</a>
       <a href="#pricing">Pricing</a>
-      <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401">Order</a>
+      <a href="#faq">FAQ</a>
     </div>
     <div class="foot-col">
       <h4>Contact</h4>
       <a href="mailto:hello@logicrove.com">hello@logicrove.com</a>
       <a href="https://logicrove.com">logicrove.com</a>
+      <a href="#about">About</a>
     </div>
   </div>
   <div class="foot-base">
@@ -971,3 +1125,4 @@ You don’t need another SEO report. You need to know why AI is choosing other f
 
 </body>
 </html>
+
