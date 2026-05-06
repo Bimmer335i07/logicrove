@@ -707,6 +707,148 @@
   .close h2 em { font-style: italic; color: var(--gold); }
   .close .lede { max-width: 600px; margin-bottom: 44px; }
 
+  /* Contact form */
+  .contact-section {
+    background: var(--cream-deep);
+    padding: 100px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .contact-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .contact-inner .section-label { margin-bottom: 18px; }
+
+  .contact-inner h2 {
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 72;
+  }
+
+  .contact-inner .sub {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .form-field input,
+  .form-field textarea {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: var(--navy);
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: #B5A98A;
+  }
+
+  .form-submit {
+    margin-top: 8px;
+  }
+
+  .form-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #9A8E7A;
+  }
+
+  .form-success {
+    padding: 28px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .form-error-global {
+    padding: 16px 20px;
+    background: #fff5f5;
+    border: 1px solid #f5c6c6;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #8b2020;
+    margin-bottom: 8px;
+  }
+
+  .form-error-global:empty { display: none; }
+
+  .field-error {
+    font-size: 12px;
+    color: #8b2020;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .form-field input[aria-invalid="true"],
+  .form-field textarea[aria-invalid="true"] {
+    border-color: #c97a7a;
+    background: #fffafa;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+
   /* Footer */
   footer {
     background: var(--navy);
@@ -1157,6 +1299,65 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get in touch</div>
+    <h2>Questions about your firm's AI visibility?</h2>
+    <p class="sub">We respond to every inquiry within one business day. If you have a specific question about a firm, market, or how the audit works, include that detail and we will address it directly.</p>
+
+    <div class="form-error-global" data-fs-error></div>
+
+    <form
+      class="contact-form"
+      id="contactForm"
+    >
+      <div class="form-row">
+        <div class="form-field">
+          <label for="contact-name">Your name</label>
+          <input type="text" id="contact-name" name="name" data-fs-field="name" placeholder="First and last name" required>
+          <span class="field-error" data-fs-error="name"></span>
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Email address</label>
+          <input type="email" id="contact-email" name="email" data-fs-field="email" placeholder="you@yourfirm.com" required>
+          <span class="field-error" data-fs-error="email"></span>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-firm">Firm name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#9A8E7A;">(optional)</span></label>
+        <input type="text" id="contact-firm" name="firm" data-fs-field="firm" placeholder="Your law firm or organization">
+      </div>
+
+      <div class="form-field">
+        <label for="contact-message">Your question or message</label>
+        <textarea id="contact-message" name="message" data-fs-field="message" placeholder="What would you like to know?" required></textarea>
+        <span class="field-error" data-fs-error="message"></span>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-primary" data-fs-submit-btn>
+          Send message
+          <span class="arrow">&#8594;</span>
+        </button>
+      </div>
+
+      <p class="form-note">We do not add you to any list. This message goes directly to a LogicRove analyst.</p>
+    </form>
+
+    <div class="form-success" data-fs-success hidden>
+      Message received. We will follow up at the email address you provided, usually within one business day.
+    </div>
+  </div>
+</section>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contactForm', formId: 'xeenzzkz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
 <!-- FOOTER -->
 <footer>
   <div class="foot-grid">
@@ -1175,7 +1376,7 @@
     </div>
     <div class="foot-col">
       <h4>Contact</h4>
-      <a href="mailto:scott.lee@logicrove.com">scott.lee@logicrove.com</a>
+      <a href="#contact">Send a message</a>
       <a href="https://logicrove.com">logicrove.com</a>
       <a href="#about">About</a>
     </div>
