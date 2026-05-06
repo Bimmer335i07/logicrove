@@ -21,6 +21,7 @@
     --ink-soft: #3A3632;
     --navy: #0F2340;
     --navy-soft: #1B3458;
+    --navy-mid: #162d4e;
     --gold: #A67C3A;
     --gold-pale: #D4B56B;
     --rule: #D3C9B3;
@@ -28,7 +29,6 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -42,19 +42,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
+  .wrap  { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+  .narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
 
-  .narrow {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  /* ——— Typography ——— */
+  /* Typography */
   h1, h2, h3, h4 {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 400;
@@ -63,15 +54,15 @@
   }
 
   h1 {
-    font-size: clamp(44px, 6.4vw, 84px);
-    line-height: 1.02;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1.03;
     font-weight: 300;
     letter-spacing: -0.03em;
     font-variation-settings: "opsz" 144;
   }
 
   h2 {
-    font-size: clamp(30px, 3.4vw, 44px);
+    font-size: clamp(28px, 3.2vw, 42px);
     line-height: 1.1;
     font-weight: 400;
     font-variation-settings: "opsz" 72;
@@ -94,26 +85,25 @@
   }
 
   .serif { font-family: 'Fraunces', Georgia, serif; }
-  .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+  .mono  { font-family: 'JetBrains Mono', 'Courier New', monospace; }
 
   .lede {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(20px, 2vw, 24px);
-    line-height: 1.55;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.6;
     font-weight: 300;
     color: var(--ink-soft);
     font-variation-settings: "opsz" 72;
   }
 
-  p { color: var(--ink-soft); }
-
-  a { color: var(--navy); text-decoration: none; }
+  p   { color: var(--ink-soft); }
+  a   { color: var(--navy); text-decoration: none; }
   a:hover { color: var(--gold); }
 
-  /* ——— Top bar ——— */
+  /* Top bar */
   .topbar {
     border-bottom: 1px solid var(--rule);
-    padding: 22px 0;
+    padding: 14px 0;
     background: var(--cream);
     position: sticky;
     top: 0;
@@ -142,8 +132,6 @@
 
   .mark img { height: 72px; width: auto; }
 
-  .topbar { padding: 14px 0; }
-
   .topnav {
     display: flex;
     gap: 32px;
@@ -163,22 +151,20 @@
     letter-spacing: 0.01em;
     transition: background 0.2s, color 0.2s;
   }
-  .topnav a.topcta:hover {
-    background: var(--gold);
-    color: var(--cream);
-  }
+  .topnav a.topcta:hover { background: var(--gold); color: var(--cream); }
 
-  /* ——— Hero ——— */
+  /* Hero */
   .hero {
-    padding: 110px 0 100px;
+    padding: 100px 0 90px;
     position: relative;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 48px;
-    max-width: 980px;
+    grid-template-columns: 3fr 2fr;
+    gap: 72px;
+    max-width: 1120px;
+    align-items: start;
   }
 
   .filing {
@@ -189,7 +175,7 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     font-weight: 500;
   }
 
@@ -207,13 +193,10 @@
     color: var(--gold);
   }
 
-  .hero-lede {
-    margin-top: 36px;
-    max-width: 620px;
-  }
+  .hero-lede { margin-top: 32px; }
 
   .hero-cta-row {
-    margin-top: 52px;
+    margin-top: 48px;
     display: flex;
     align-items: center;
     gap: 28px;
@@ -235,16 +218,8 @@
     align-items: center;
     gap: 14px;
   }
-  .btn-primary:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--cream);
-  }
-  .btn-primary .arrow {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    transition: transform 0.2s;
-  }
+  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--cream); }
+  .btn-primary .arrow { font-family: 'Fraunces', serif; font-size: 18px; transition: transform 0.2s; }
   .btn-primary:hover .arrow { transform: translateX(4px); }
 
   .btn-secondary {
@@ -256,26 +231,18 @@
     letter-spacing: 0.02em;
     transition: all 0.2s;
   }
-  .btn-secondary:hover {
-    color: var(--gold);
-    border-color: var(--gold);
-  }
+  .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
 
-  /* ——— Meta line ——— */
   .meta-line {
-    margin-top: 56px;
+    margin-top: 48px;
     display: flex;
-    gap: 56px;
+    gap: 48px;
     flex-wrap: wrap;
     padding-top: 24px;
     border-top: 1px solid var(--rule);
   }
 
-  .meta-line div {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
+  .meta-line div { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
 
   .meta-line .label {
     display: block;
@@ -288,7 +255,155 @@
     font-weight: 500;
   }
 
-  /* ——— Section ——— */
+  /* Prompt panel (hero right column) */
+  .prompt-panel {
+    background: var(--navy);
+    border: 1px solid rgba(166, 124, 58, 0.28);
+    padding: 28px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: rgba(246, 241, 230, 0.7);
+    line-height: 1.65;
+    position: sticky;
+    top: 108px;
+  }
+
+  .pp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(166, 124, 58, 0.22);
+  }
+
+  .pp-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    font-weight: 500;
+  }
+
+  .pp-id {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: rgba(246, 241, 230, 0.3);
+  }
+
+  .pp-query-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 230, 0.35);
+    margin-bottom: 6px;
+  }
+
+  .pp-query {
+    color: var(--cream);
+    font-size: 12.5px;
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+
+  .pp-meta {
+    font-size: 9.5px;
+    color: rgba(246, 241, 230, 0.3);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(246, 241, 230, 0.08);
+  }
+
+  .pp-section-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    margin-bottom: 10px;
+  }
+
+  .pp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(246, 241, 230, 0.06);
+  }
+
+  .pp-row:last-of-type { border-bottom: none; }
+
+  .pp-firm { color: rgba(246, 241, 230, 0.82); }
+  .pp-score { color: var(--gold-pale); font-size: 10.5px; }
+
+  .pp-gap {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(166, 124, 58, 0.2);
+  }
+
+  .pp-not-cited-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 230, 0.3);
+    margin-bottom: 10px;
+  }
+
+  .pp-row-zero .pp-firm { color: rgba(246, 241, 230, 0.38); }
+  .pp-row-zero .pp-score {
+    color: rgba(246, 241, 230, 0.3);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .pp-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(246, 241, 230, 0.08);
+    font-size: 9px;
+    color: rgba(246, 241, 230, 0.25);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+
+  /* Markets bar */
+  .markets-bar {
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 11px 0;
+  }
+
+  .markets-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .markets-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .markets-list {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    opacity: 0.6;
+    letter-spacing: 0.04em;
+  }
+
+  /* Sections */
   section {
     padding: 100px 0;
     border-top: 1px solid var(--rule);
@@ -304,11 +419,9 @@
     font-weight: 500;
   }
 
-  .section-title {
-    margin-bottom: 16px;
-  }
+  .section-title { margin-bottom: 16px; }
 
-  /* ——— Problem / Stats ——— */
+  /* Stats */
   .problem-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -316,7 +429,7 @@
   }
 
   .stat {
-    padding: 32px 0px 16px;
+    padding: 32px 0 16px;
     border-right: 1px solid var(--rule);
   }
   .stat:last-child { border-right: none; }
@@ -330,29 +443,11 @@
     color: var(--navy);
     font-variation-settings: "opsz" 144;
   }
-  .stat-number sup {
-    font-size: 28px;
-    vertical-align: super;
-    color: var(--gold);
-    font-weight: 400;
-  }
+  .stat-number sup { font-size: 28px; vertical-align: super; color: var(--gold); font-weight: 400; }
+  .stat-caption { font-size: 15px; margin-top: 14px; line-height: 1.55; color: var(--ink-soft); }
+  .stat-source { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.05em; }
 
-  .stat-caption {
-    font-size: 15px;
-    margin-top: 14px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-  }
-
-  .stat-source {
-    margin-top: 16px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-
-  /* ——— Findings ——— */
+  /* Findings */
   .findings {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -360,11 +455,7 @@
     margin-top: 48px;
   }
 
-  .finding {
-    padding-top: 32px;
-    border-top: 1px solid var(--rule);
-  }
-
+  .finding { padding-top: 32px; border-top: 1px solid var(--rule); }
   .finding-num {
     font-family: 'Fraunces', serif;
     font-size: 12px;
@@ -374,36 +465,12 @@
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-
   .finding h3 { margin-bottom: 14px; }
+  .finding p  { font-size: 15px; line-height: 1.65; }
 
-  .finding p {
-    font-size: 15px;
-    line-height: 1.65;
-  }
-
-  /* ——— Sample finding ——— */
-  .sample {
-    background: var(--navy);
-    color: var(--cream);
-    padding: 100px 0;
-  }
-
-  .sample-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  .sample-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    bordero;
-    padding: 0 40px;
-  }
+  /* Sample finding */
+  .sample { background: var(--navy); color: var(--cream); padding: 100px 0; }
+  .sample-inner { max-width: 760px; margin: 0 auto; padding: 0 40px; }
 
   .sample-header {
     display: flex;
@@ -411,24 +478,19 @@
     justify-content: space-between;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid rgba(211, 201, 179, 0.25);
   }
   .sample-header .section-label { margin-bottom: 0; }
 
-  .doc-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    letter-spacing: 0.05em;
-  }
+  .doc-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(246,241,230,0.4); letter-spacing: 0.05em; }
 
   .sample-quote {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(22px, 2.4vw, 30px);
-    line-height: 1.4;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.45;
     font-weight: 300;
     font-style: italic;
-    color: var(--navy);
+    color: var(--cream);
     font-variation-settings: "opsz" 72;
   }
 
@@ -438,7 +500,7 @@
     line-height: 0.9;
     margin-right: 14px;
     margin-top: 6px;
-    color: var(--gold);
+    color: var(--gold-pale);
     font-style: normal;
     font-weight: 400;
   }
@@ -449,28 +511,17 @@
     gap: 24px;
     align-items: center;
     padding-top: 20px;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid rgba(211, 201, 179, 0.2);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
+    font-size: 11px;
+    color: rgba(246,241,230,0.4);
     letter-spacing: 0.05em;
     flex-wrap: wrap;
   }
-  .sample-attrib .tag {
-    color: var(--gold);
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    font-size: 10px;
-  }
+  .sample-attrib .tag { color: var(--gold-pale); text-transform: uppercase; font-weight: 500; letter-spacing: 0.15em; font-size: 10px; }
 
-  /* ——— Process ——— */
-  .process {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 64px;
-    margin-top: 48px;
-  }
+  /* Process */
+  .process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 48px; }
 
   .step .step-num {
     font-family: 'Fraunces', serif;
@@ -484,31 +535,24 @@
     border-bottom: 1px solid var(--rule);
     display: block;
   }
+  .step h3 { margin-bottom: 14px; font-weight: 500; }
+  .step p  { font-size: 15px; line-height: 1.65; }
 
-  .step h3 {
-    margin-bottom: 14px;
-    font-weight: 500;
-  }
-
-  .step p {
-    font-size: 15px;
-    line-height: 1.65;
-  }
-
-  /* ——— Pricing ——— */
+  /* 3-tier pricing */
   .pricing-wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.06fr 1fr;
     gap: 0;
     margin-top: 50px;
     border: 1px solid var(--rule);
   }
 
   .tier {
-    padding: 56px 48px;
+    padding: 52px 40px;
     position: relative;
+    border-right: 1px solid var(--rule);
   }
-  .tier:first-child { border-right: 1px solid var(--rule); }
+  .tier:last-child { border-right: none; }
 
   .tier-tag {
     font-family: 'JetBrains Mono', monospace;
@@ -521,7 +565,7 @@
 
   .tier-name {
     font-family: 'Fraunces', serif;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 400;
     color: var(--navy);
     margin-bottom: 8px;
@@ -530,7 +574,7 @@
 
   .tier-price {
     font-family: 'Fraunces', serif;
-    font-size: 52px;
+    font-size: 50px;
     font-weight: 300;
     color: var(--navy);
     letter-spacing: -0.02em;
@@ -538,41 +582,34 @@
     margin-bottom: 6px;
     font-variation-settings: "opsz" 144;
   }
-  .tier-price sup {
-    font-size: 22px;
-    vertical-align: super;
-    color: var(--gold);
-    font-weight: 400;
-  }
+  .tier-price sup { font-size: 22px; vertical-align: super; color: var(--gold); font-weight: 400; }
 
   .tier-sub {
     font-size: 13px;
     color: var(--ink-soft);
-    letter-spacing: 0.02em;
-    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
   }
 
-  .tier ul {
-    list-style: none;
-    margin-bottom: 36px;
-  }
+  .tier ul { list-style: none; margin-bottom: 32px; }
 
   .tier li {
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 9px 0;
+    font-size: 13.5px;
     color: var(--ink-soft);
     border-bottom: 1px solid var(--rule-soft);
     display: flex;
-    gap: 14px;
+    gap: 12px;
     align-items: flex-start;
+    line-height: 1.5;
   }
   .tier li:last-child { border-bottom: none; }
   .tier li::before {
     content: "›";
     color: var(--gold);
     font-family: 'Fraunces', serif;
-    font-size: 16px;
-    line-height: 1.3;
+    font-size: 15px;
+    line-height: 1.35;
     flex-shrink: 0;
   }
 
@@ -581,18 +618,15 @@
     color: var(--cream);
   }
   .tier.recommended .tier-name,
-  .tier.recommended .tier-price { color: var(--cream); }
+  .tier.recommended .tier-price  { color: var(--cream); }
   .tier.recommended .tier-price sup { color: var(--gold-pale); }
   .tier.recommended .tier-sub,
-  .tier.recommended li { color: rgba(246, 241, 230, 0.8); }
-  .tier.recommended li { border-bottom-color: rgba(246, 241, 230, 0.12); }
+  .tier.recommended li { color: rgba(246, 241, 230, 0.78); }
+  .tier.recommended li { border-bottom-color: rgba(246, 241, 230, 0.1); }
   .tier.recommended li::before { color: var(--gold-pale); }
   .tier.recommended .tier-tag { color: var(--gold-pale); }
 
-  .tier .btn-primary {
-    width: 100%;
-    justify-content: center;
-  }
+  .tier .btn-primary { width: 100%; justify-content: center; }
   .tier.recommended .btn-primary {
     background: var(--gold);
     border-color: var(--gold);
@@ -603,33 +637,77 @@
     border-color: var(--cream);
   }
 
-  /* ——— Close ——— */
-  .close {
-    padding: 140px 0 120px;
-    text-align: left;
+  .tier-best-value {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold-pale);
+    color: var(--navy);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 4px 10px;
   }
 
-  .close-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 40px;
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 48px;
   }
 
+  .about-bio h3 { margin-bottom: 16px; }
+  .about-bio p  { font-size: 15px; line-height: 1.65; margin-bottom: 16px; }
+
+  .about-principles { padding-left: 32px; border-left: 1px solid var(--rule); }
+
+  .principle { padding: 24px 0; border-bottom: 1px solid var(--rule-soft); }
+  .principle:last-child { border-bottom: none; }
+
+  .principle-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .principle p { font-size: 14px; line-height: 1.6; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin-top: 48px; }
+  .faq-item { border-bottom: 1px solid var(--rule); padding: 32px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--rule); }
+
+  .faq-q {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.3;
+    font-variation-settings: "opsz" 48;
+  }
+  .faq-a { font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
+
+  /* Close */
+  .close { padding: 140px 0 120px; text-align: left; }
+  .close-inner { max-width: 760px; margin: 0 auto; padding: 0 40px; }
   .close h2 {
-    font-size: clamp(36px, 4.8vw, 60px);
+    font-size: clamp(34px, 4.4vw, 56px);
     line-height: 1.08;
     font-weight: 300;
     margin-bottom: 28px;
     color: var(--navy);
   }
-  .close h2 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
+  .close h2 em { font-style: italic; color: var(--gold); }
   .close .lede { max-width: 600px; margin-bottom: 44px; }
 
-  /* ——— Footer ——— */
+  /* Footer */
   footer {
     background: var(--navy);
     color: rgba(246, 241, 230, 0.72);
@@ -644,23 +722,11 @@
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 40px 60px;
-    border-bottom: 1px solid rgba(246, 241, 230, 0.12);
+    border-bottom: 1px solid rgba(246, 241, 230, 0.1);
   }
 
-  .foot-mark {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    color: var(--cream);
-    font-weight: 500;
-    margin-bottom: 18px;
-    letter-spacing: -0.01em;
-  }
-
-  .foot-bio {
-    max-width: 380px;
-    line-height: 1.7;
-    color: rgba(246, 241, 230, 0.7);
-  }
+  .foot-mark { font-family: 'Fraunces', serif; font-size: 22px; color: var(--cream); font-weight: 500; margin-bottom: 18px; letter-spacing: -0.01em; }
+  .foot-bio  { max-width: 380px; line-height: 1.7; color: rgba(246, 241, 230, 0.65); }
 
   .foot-col h4 {
     font-family: 'JetBrains Mono', monospace;
@@ -672,12 +738,7 @@
     font-weight: 500;
   }
 
-  .foot-col a {
-    display: block;
-    color: rgba(246, 241, 230, 0.72);
-    padding: 6px 0;
-    font-size: 14px;
-  }
+  .foot-col a { display: block; color: rgba(246, 241, 230, 0.65); padding: 6px 0; font-size: 14px; }
   .foot-col a:hover { color: var(--gold-pale); }
 
   .foot-base {
@@ -690,82 +751,15 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.05em;
-    color: rgba(246, 241, 230, 0.5);
+    color: rgba(246, 241, 230, 0.4);
   }
 
-  /* ——— About ——— */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    margin-top: 48px;
+  /* Mobile */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .prompt-panel { position: relative; top: 0; }
   }
 
-  .about-bio h3 {
-    margin-bottom: 16px;
-  }
-
-  .about-bio p {
-    font-size: 15px;
-    line-height: 1.65;
-    margin-bottom: 16px;
-  }
-
-  .about-principles {
-    padding-left: 32px;
-    border-left: 1px solid var(--rule);
-  }
-
-  .principle {
-    padding: 24px 0;
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  .principle:last-child { border-bottom: none; }
-
-  .principle-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-
-  .principle p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* ——— FAQ ——— */
-  .faq-list {
-    max-width: 760px;
-    margin-top: 48px;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid var(--rule);
-    padding: 32px 0;
-  }
-  .faq-item:first-child { border-top: 1px solid var(--rule); }
-
-  .faq-q {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 14px;
-    line-height: 1.3;
-    font-variation-settings: "opsz" 48;
-  }
-
-  .faq-a {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-  }
-
-  /* ——— Mobile ——— */
   @media (max-width: 820px) {
     .topnav { gap: 16px; }
     .topnav a:not(.topcta) { display: none; }
@@ -776,19 +770,18 @@
     .stat:last-child { border-bottom: none; }
     .stat:nth-child(n+2) { padding-left: 0; }
     .findings { grid-template-columns: 1fr; gap: 48px; }
-    .process { grid-template-columns: 1fr; gap: 40px; }
+    .process  { grid-template-columns: 1fr; gap: 40px; }
     .pricing-wrap { grid-template-columns: 1fr; }
-    .tier { padding: 40px 28px; }
-    .tier:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .tier { padding: 40px 28px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .tier:last-child { border-bottom: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-principles { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 32px; }
     .foot-grid { grid-template-columns: 1fr; gap: 40px; padding-bottom: 40px; }
     .foot-base { flex-direction: column; gap: 16px; align-items: flex-start; }
     .wrap, .narrow { padding: 0 24px; }
-    .sample-inner { padding: 0 24px; }
-    .close-inner { padding: 0 24px; }
-    .topbar-inner { padding: 0 24px; }
-    .foot-grid, .foot-base { padding-left: 24px; padding-right: 24px; }
+    .sample-inner, .close-inner { padding: 0 24px; }
+    .topbar-inner, .foot-grid, .foot-base, .markets-inner { padding-left: 24px; padding-right: 24px; }
+    .meta-line { gap: 32px; }
   }
 </style>
 </head>
@@ -798,9 +791,9 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <div class="topbar-inner">
-   <div class="mark">
-  <img src="https://logicrove.com/LogicRoveLogoTransparent.png" alt="LogicRove">
-</div>
+    <div class="mark">
+      <img src="https://logicrove.com/LogicRoveLogoTransparent.png" alt="LogicRove">
+    </div>
     <nav class="topnav">
       <a href="#audit">The Audit</a>
       <a href="/brief/">The Brief</a>
@@ -815,18 +808,16 @@
 <section class="hero" id="top" style="border-top: none;">
   <div class="wrap">
     <div class="hero-grid">
+
+      <!-- Left: Headline + lede + CTA -->
       <div>
-        <div class="filing">Dossier №01 &nbsp;·&nbsp; AI Search Visibility</div>
+        <div class="filing">Dossier &#8470;01 &nbsp;&#183;&nbsp; AI Search Visibility</div>
         <h1>When AI recommends a personal injury lawyer in your city, <em>is it your firm or your competitor?</em></h1>
-<p class="lede hero-lede">
-We analyze how ChatGPT and Google recommend personal injury law firms, and show you exactly where you stand.
-We run the prompts your future clients are already typing, identify which firms are being recommended, and document why.
-You receive a written report in 48 hours.
-</p>
+        <p class="lede hero-lede">Somewhere in your city right now, a potential client just asked ChatGPT for a personal injury lawyer. The AI named three firms. Yours probably was not one of them. Not because your firm is worse. Because AI search runs on different signals than Google, and almost no PI firm has optimized for them yet. The audit shows where you stand, why you are missing, and what to fix. Written report. 48 hours. One flat fee.</p>
         <div class="hero-cta-row">
           <a href="#pricing" class="btn-primary">
             Check if your firm is being recommended
-            <span class="arrow">→</span>
+            <span class="arrow">&#8594;</span>
           </a>
           <a href="#audit" class="btn-secondary">See what is inside</a>
         </div>
@@ -834,11 +825,60 @@ You receive a written report in 48 hours.
           <div><span class="label">Deliverable</span>Written report, 12 to 18 pages</div>
           <div><span class="label">Turnaround</span>48 hours</div>
           <div><span class="label">Investment</span>$497, one time</div>
+          <div><span class="label">Entry point</span>Free snapshot available</div>
         </div>
       </div>
+
+      <!-- Right: Prompt result panel -->
+      <div>
+        <div class="prompt-panel">
+          <div class="pp-header">
+            <div class="pp-tag">Field report &#183; sample data</div>
+            <div class="pp-id">Audit 2026&#8209;03&#8209;18</div>
+          </div>
+          <div class="pp-query-label">Query submitted</div>
+          <div class="pp-query">"best personal injury lawyer in Miami"</div>
+          <div class="pp-meta">ChatGPT GPT&#8209;4o &#183; 15 independent trials &#183; March 2026</div>
+
+          <div class="pp-section-label">Cited in AI response</div>
+          <div class="pp-row">
+            <span class="pp-firm">Competitor A</span>
+            <span class="pp-score">14 of 15</span>
+          </div>
+          <div class="pp-row">
+            <span class="pp-firm">Competitor B</span>
+            <span class="pp-score">13 of 15</span>
+          </div>
+          <div class="pp-row">
+            <span class="pp-firm">Competitor C</span>
+            <span class="pp-score">10 of 15</span>
+          </div>
+
+          <div class="pp-gap">
+            <div class="pp-not-cited-label">Not cited</div>
+            <div class="pp-row pp-row-zero">
+              <span class="pp-firm">Audit subject</span>
+              <span class="pp-score">0 of 15</span>
+            </div>
+          </div>
+
+          <div class="pp-footer">
+            Firm names redacted &#183; Full audit includes named competitors &#183; Illustrative sample
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- MARKETS BAR -->
+<div class="markets-bar">
+  <div class="markets-inner">
+    <div class="markets-tag">Active markets</div>
+    <div class="markets-list">Miami &nbsp;&#183;&nbsp; Atlanta &nbsp;&#183;&nbsp; Chicago &nbsp;&#183;&nbsp; Houston &nbsp;&#183;&nbsp; New York &nbsp;&#183;&nbsp; Los Angeles &nbsp;&#183;&nbsp; Philadelphia &nbsp;&#183;&nbsp; Dallas &nbsp;&#183;&nbsp; Denver &nbsp;&#183;&nbsp; Wilmington NC</div>
+  </div>
+</div>
 
 <!-- PROBLEM / STATS -->
 <section>
@@ -850,7 +890,7 @@ You receive a written report in 48 hours.
       <div class="stat">
         <div class="stat-number">25<sup>%</sup></div>
         <div class="stat-caption">of Google searches now return an AI Overview above the organic results.</div>
-        <div class="stat-source">Q1 2026 · Rankability</div>
+        <div class="stat-source">Q1 2026 &#183; Rankability</div>
       </div>
       <div class="stat">
         <div class="stat-number">1<sup>in 3</sup></div>
@@ -870,9 +910,7 @@ You receive a written report in 48 hours.
 <section id="audit">
   <div class="wrap">
     <div class="section-label">Inside the audit</div>
-    <p class="lede" style="max-width: 720px; margin-bottom: 40px;">
-You don’t need another SEO report. You need to know why AI is choosing other firms over yours.
-</p>
+    <p class="lede" style="max-width: 720px; margin-bottom: 40px;">You do not need another SEO report. You need to know why AI is choosing other firms over yours.</p>
     <h2 class="section-title">Six findings, one written verdict, a prioritized remediation list you can hand to any marketing team.</h2>
 
     <div class="findings">
@@ -915,14 +953,12 @@ You don’t need another SEO report. You need to know why AI is choosing other f
   <div class="sample-inner">
     <div class="sample-header">
       <div class="section-label" style="margin: 0;">Specimen finding</div>
-      <div class="doc-label">Excerpt · Finding II · Share of voice</div>
+      <div class="doc-label">Excerpt &#183; Finding II &#183; Share of voice</div>
     </div>
-
     <p class="sample-quote">When asked for the best personal injury attorney in [metro], ChatGPT named three firms in 40 of 50 trials. Your firm appeared in 2 of 50. The firm named most often (38 of 50) has 11 schema types implemented across its site. Your site has 2. This is the single highest leverage intervention we found.</p>
-
     <div class="sample-attrib">
       <span class="tag">From the report</span>
-      <span>Page 4 of 14 · Signed · LogicRove Research · 12 April 2026</span>
+      <span>Page 4 of 14 &#183; Signed &#183; LogicRove Research &#183; 12 April 2026</span>
     </div>
   </div>
 </div>
@@ -957,7 +993,6 @@ You don’t need another SEO report. You need to know why AI is choosing other f
   <div class="wrap">
     <div class="section-label">Who we are</div>
     <h2 class="section-title">Independent research. No retainer. No conflict of interest.</h2>
-
     <div class="about-grid">
       <div class="about-bio">
         <h3>Founded by Scott Lee</h3>
@@ -965,7 +1000,6 @@ You don’t need another SEO report. You need to know why AI is choosing other f
         <p>My job was making complex technology decisions under real operational pressure: PACS migrations, EHR integrations, endpoint security across hundreds of sites. I learned that the best decisions start with an honest assessment of where you actually stand, not where you think you stand.</p>
         <p>LogicRove applies that same principle to a new problem. AI search engines are now the first place people go when they need a lawyer. Most firms have no idea how they appear in those results. We write the report that tells them.</p>
       </div>
-
       <div class="about-principles">
         <div class="principle">
           <div class="principle-label">Research firm, not an agency</div>
@@ -993,33 +1027,27 @@ You don’t need another SEO report. You need to know why AI is choosing other f
   <div class="wrap">
     <div class="section-label">Common questions</div>
     <h2 class="section-title">What firms ask before commissioning the audit.</h2>
-
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">How is this different from an SEO audit?</div>
         <p class="faq-a">An SEO audit measures how your site performs in traditional Google search: rankings, backlinks, page speed, keyword density. This audit measures something different entirely. It measures how AI systems like ChatGPT, Perplexity, and Google AI Overviews describe, recommend, and cite your firm when a prospective client asks for help. The ranking factors are different. The optimization strategies are different. Most SEO agencies are not yet equipped to diagnose AI visibility problems because the field is still in its early stages.</p>
       </div>
-
       <div class="faq-item">
         <div class="faq-q">My firm already ranks well on Google. Do I still need this?</div>
         <p class="faq-a">Google ranking and AI recommendation are two separate systems. A firm can hold the number one organic position for "personal injury lawyer in Houston" and still be absent from ChatGPT and Perplexity responses for the same query. AI models pull from different signals: structured data, E-E-A-T markers, citation sources, and schema markup that traditional SEO does not always address. The audit shows you whether your Google success is translating into AI visibility, or whether competitors are capturing that new channel while you assume you are covered.</p>
       </div>
-
       <div class="faq-item">
         <div class="faq-q">Other companies offer free AI visibility checks. Why pay $497?</div>
         <p class="faq-a">Free audits exist to generate leads for agency retainers that cost $5,000 to $20,000 per month. They surface a handful of findings, enough to create urgency, then steer you toward a long term contract. Our audit is the complete deliverable. Twelve to eighteen pages, five named competitors analyzed alongside your firm, every AI platform tested, every prompt and response documented. There is no sales call at the end. No retainer pitch. You receive the full picture and decide what to do with it on your own terms.</p>
       </div>
-
+      <div class="faq-item">
+        <div class="faq-q">What is the AI Visibility Snapshot and how does it differ from the full audit?</div>
+        <p class="faq-a">The Snapshot is a one to two page brief covering one city and five AI platforms across 25 prompts. It shows you whether your firm is being cited at all, names the competitors appearing instead, and identifies the single highest-impact fix. It is designed for firms that want to see the data before committing to the full analysis. The full audit covers fifteen prompts per platform, six separate findings, named competitor share of voice across all surfaces, and a complete remediation list. Most firms that see the Snapshot commission the full audit within a week.</p>
+      </div>
       <div class="faq-item">
         <div class="faq-q">Can my current marketing agency do this for me?</div>
         <p class="faq-a">They can execute the recommendations. That is exactly what the remediation list is designed for. But most marketing agencies do not yet have the methodology to diagnose AI visibility gaps, because the tools and techniques are still emerging. The audit gives your agency a clear, prioritized list of what to fix. Think of it as a second opinion from a specialist before your general practitioner begins treatment.</p>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What do I do with the report after I receive it?</div>
-        <p class="faq-a">Hand the prioritized remediation list to whoever manages your firm's web presence. Every item includes plain language instructions and an impact rating. Most firms see their first improvements within 30 to 60 days of implementing the top five recommendations. If you do not have a web team, the report includes enough detail for any competent freelancer or agency to execute without additional context.</p>
-      </div>
-
       <div class="faq-item">
         <div class="faq-q">What if AI recommends my firm already?</div>
         <p class="faq-a">Then the audit confirms your position and shows you exactly why you are being recommended, so you can protect that advantage. It also identifies where competitors are gaining ground and where your visibility is weakest across different prompt types. Knowing you are ahead is useful. Knowing exactly where and by how much is actionable.</p>
@@ -1031,12 +1059,34 @@ You don’t need another SEO report. You need to know why AI is choosing other f
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <div class="section-label">Engagement</div>
-    <h2 class="section-title">Two ways to work with us. Most firms start with the single audit.</h2>
+    <div class="section-label">Engagement options</div>
+    <h2 class="section-title">Three ways to work with us. Most firms start with the Snapshot, then commission the full audit.</h2>
 
     <div class="pricing-wrap">
+
+      <!-- Tier 1: Snapshot -->
       <div class="tier">
-        <div class="tier-tag">Single audit</div>
+        <div class="tier-tag">Start here</div>
+        <div class="tier-name">The Snapshot</div>
+        <div class="tier-price">$97<sup></sup></div>
+        <div class="tier-sub">One time. Delivered within 24 hours.</div>
+        <ul>
+          <li>Five AI platforms: ChatGPT, Claude, Perplexity, Google AI, Gemini</li>
+          <li>25 prompts, all results documented</li>
+          <li>Named competitor appearances noted</li>
+          <li>One priority fix identified, specific to your gap</li>
+          <li>One to two page brief, clean format</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZueV579w1PafofgXx38404" class="btn-primary">
+          Order Snapshot
+          <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+
+      <!-- Tier 2: The Audit (recommended) -->
+      <div class="tier recommended">
+        <div class="tier-best-value">Most complete</div>
+        <div class="tier-tag">Full analysis</div>
         <div class="tier-name">The Audit</div>
         <div class="tier-price">$497<sup></sup></div>
         <div class="tier-sub">One time. No subscription. Delivered in 48 hours.</div>
@@ -1052,12 +1102,13 @@ You don’t need another SEO report. You need to know why AI is choosing other f
         </ul>
         <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401" class="btn-primary">
           Order The Audit
-          <span class="arrow">→</span>
+          <span class="arrow">&#8594;</span>
         </a>
       </div>
 
-      <div class="tier recommended">
-        <div class="tier-tag">Quarterly</div>
+      <!-- Tier 3: Retainer -->
+      <div class="tier">
+        <div class="tier-tag">Ongoing intelligence</div>
         <div class="tier-name">The Retainer</div>
         <div class="tier-price">$1,497<sup></sup></div>
         <div class="tier-sub">Every 90 days. Cancel anytime. For firms that want to watch the landscape.</div>
@@ -1069,13 +1120,14 @@ You don’t need another SEO report. You need to know why AI is choosing other f
           <li>Quarterly 45 minute strategy call</li>
           <li>Email access to your analyst, 48 hour response</li>
           <li>Discounted additional metros or practice areas</li>
-          <li>Locked at $1,497 even as list price rises</li>
+          <li>Rate locked at $1,497 even as list price rises</li>
         </ul>
-        <a href="mailto:hello@logicrove.com?subject=Interested%20in%20The%20Retainer" class="btn-primary">
+        <a href="https://calendly.com/scott-lee-logicrove/30min" class="btn-primary">
           Request Enrollment
-          <span class="arrow">→</span>
+          <span class="arrow">&#8594;</span>
         </a>
       </div>
+
     </div>
   </div>
 </section>
@@ -1084,13 +1136,13 @@ You don’t need another SEO report. You need to know why AI is choosing other f
 <section class="close">
   <div class="close-inner">
     <div class="section-label">In closing</div>
-   <h2>The firms being recommended today are getting the cases today.</h2>
+    <h2>The firms being recommended today are getting the cases today.</h2>
     <p class="lede">We do not sell software subscriptions. We do not manage your SEO. We write one honest document about where your firm stands in the new AI search landscape, and what to do about it. If that is useful, we would be glad to work with you.</p>
     <div style="margin-top: 44px;">
       <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401" class="btn-primary">
-  Check if your firm is being recommended. $497.
-  <span class="arrow">→</span>
-</a>
+        Check if your firm is being recommended. $497.
+        <span class="arrow">&#8594;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1112,17 +1164,16 @@ You don’t need another SEO report. You need to know why AI is choosing other f
     </div>
     <div class="foot-col">
       <h4>Contact</h4>
-      <a href="mailto:hello@logicrove.com">hello@logicrove.com</a>
+      <a href="mailto:scott.lee@logicrove.com">scott.lee@logicrove.com</a>
       <a href="https://logicrove.com">logicrove.com</a>
       <a href="#about">About</a>
     </div>
   </div>
   <div class="foot-base">
-    <div>© LogicRove Research, MMXXVI. All rights reserved.</div>
+    <div>&#169; LogicRove Research, MMXXVI. All rights reserved.</div>
     <div>Built with quiet attention.</div>
   </div>
 </footer>
 
 </body>
 </html>
-
