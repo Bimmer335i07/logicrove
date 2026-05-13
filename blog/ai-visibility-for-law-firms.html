@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Visibility for Law Firms: Why ChatGPT Recommends Your Competitors | LogicRove</title>
+<meta name="description" content="When a prospect asks ChatGPT or Perplexity to recommend a personal injury lawyer in your city, is your firm showing up? Learn how AI visibility works for law firms and how to fix it.">
+<link rel="canonical" href="https://logicrove.com/blog/ai-visibility-for-law-firms.html">
+
+<meta property="og:title" content="AI Visibility for Law Firms: Why ChatGPT Recommends Your Competitors">
+<meta property="og:description" content="When a prospect asks ChatGPT to recommend a personal injury lawyer in your city, is your firm showing up? Learn how AI visibility works and what it takes to get cited.">
+<meta property="og:image" content="https://logicrove.com/LogicRoveLogoTransparent.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #F6F1E6;
+    --cream-deep: #EFE7D5;
+    --ink: #141414;
+    --ink-soft: #3A3632;
+    --navy: #0F2340;
+    --navy-soft: #1B3458;
+    --gold: #A67C3A;
+    --gold-pale: #D4B56B;
+    --rule: #D3C9B3;
+    --rule-soft: #E5DDCA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .mark img { height: 60px; width: auto; }
+
+  .topnav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .topnav a {
+    color: var(--ink-soft);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .topnav a.topcta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 11px 20px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background 0.2s;
+  }
+
+  .topnav a.topcta:hover { background: var(--gold); }
+
+  /* Article Layout */
+  .article-wrap {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 28px;
+  }
+
+  .lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.65;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 72;
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .article-meta {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(24px, 2.8vw, 34px);
+    line-height: 1.12;
+    font-weight: 400;
+    color: var(--navy);
+    font-variation-settings: "opsz" 72;
+    margin: 56px 0 20px;
+  }
+
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--navy);
+    font-variation-settings: "opsz" 36;
+    margin: 36px 0 14px;
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  ul, ol {
+    color: var(--ink-soft);
+    margin: 0 0 24px 24px;
+    line-height: 1.7;
+  }
+
+  li { margin-bottom: 8px; }
+
+  a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--rule); }
+  a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+  .callout {
+    background: var(--cream-deep);
+    border-left: 3px solid var(--gold);
+    padding: 24px 28px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .callout p {
+    margin: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.55;
+    font-variation-settings: "opsz" 72;
+    font-weight: 300;
+    color: var(--navy);
+  }
+
+  /* CTA Block */
+  .cta-block {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 48px 44px;
+    border-radius: 3px;
+    margin: 56px 0;
+    text-align: center;
+  }
+
+  .cta-block .cta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    margin-bottom: 16px;
+  }
+
+  .cta-block h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 300;
+    color: var(--cream);
+    font-variation-settings: "opsz" 72;
+    margin: 0 0 14px;
+  }
+
+  .cta-block p {
+    color: rgba(246,241,230,0.72);
+    font-size: 15px;
+    margin: 0 0 28px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-block a.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--cream);
+    padding: 15px 32px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-block a.btn:hover { background: var(--gold-pale); color: var(--navy); }
+
+  /* FAQ */
+  .faq-section { margin-top: 60px; }
+
+  .faq-item {
+    border-top: 1px solid var(--rule);
+    padding: 28px 0;
+  }
+
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+
+  .faq-q {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--navy);
+    font-variation-settings: "opsz" 36;
+    margin-bottom: 10px;
+  }
+
+  .faq-a { color: var(--ink-soft); line-height: 1.7; margin: 0; }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .site-footer a { color: var(--navy); text-decoration: none; }
+  .site-footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .article-wrap { padding: 48px 24px 80px; }
+    .topbar-inner { padding: 0 20px; }
+    .cta-block { padding: 36px 24px; }
+    .topnav { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://logicrove.com" class="mark">
+      <img src="/LogicRoveLogoTransparent.png" alt="LogicRove">
+    </a>
+    <div class="topnav">
+      <a href="https://logicrove.com/#audit">The Audit</a>
+      <a href="https://logicrove.com/brief/">The Brief</a>
+      <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401" class="topcta">Order The Audit · $497</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Article -->
+<main class="article-wrap">
+
+  <div class="eyebrow">AI Search Visibility Research</div>
+  <div class="article-meta">LogicRove &nbsp;·&nbsp; May 2026</div>
+
+  <h1>AI Visibility for Law Firms: Why ChatGPT Recommends Your Competitors</h1>
+
+  <p class="lede">When a prospective client opens ChatGPT and types "best personal injury lawyer in Houston," your firm either appears in the response or a competitor does. Most managing partners have no idea which outcome is happening right now.</p>
+
+  <p>AI search is not the future. It is the present. ChatGPT crossed 500 million weekly active users in early 2025. Perplexity answers over 100 million queries per day. Google AI Overviews now appear on the majority of navigational and informational searches. Prospects who would have called the first law firm in Google's top three results are now asking AI engines to make the decision for them.</p>
+
+  <p>For personal injury law firms spending $5,000 to $20,000 per month on marketing, this shift has created a gap between firms that understand their AI visibility and firms that are losing cases they never knew they were competing for.</p>
+
+  <h2>What AI Visibility for Law Firms Actually Means</h2>
+
+  <p>AI visibility is not the same as Google rankings. A firm can rank on page one of Google and still be invisible to ChatGPT. A firm can have strong PPC spend and still never appear in a Perplexity response. The two ecosystems operate by different rules.</p>
+
+  <p>When a user asks an AI model to recommend a personal injury lawyer, the model draws from its training data, its connected web browsing tools, and in some cases, real-time retrieval from authoritative sources. The firms that get cited are those that have built a documented presence the AI can find and verify: authoritative content, structured data, citations from third-party sources, and a clear representation of expertise and geography.</p>
+
+  <p>This is AI visibility. It answers one question: when AI is asked to recommend a firm like yours, does it name you or your competitor?</p>
+
+  <div class="callout">
+    <p>The firms winning in AI search are not necessarily the best lawyers. They are the firms whose online presence is structured in a way AI engines can read, verify, and cite with confidence.</p>
+  </div>
+
+  <h2>How AI Engines Decide Which Law Firms to Recommend</h2>
+
+  <p>The mechanics differ across platforms, but the underlying logic is consistent across ChatGPT, Claude, Perplexity, and Google AI Overviews.</p>
+
+  <p>AI models favor firms that appear in multiple independent sources with consistent, verifiable information. A firm mentioned in a local bar association publication, a legal directory, a reputable news outlet, and its own website carries more signal than a firm with a large website but no external footprint. This is the AI equivalent of authority.</p>
+
+  <p>Structured data matters significantly. Legal schema markup tells AI engines what your firm does, where it operates, who leads it, and what practice areas it specializes in. Firms without schema markup are harder for AI to categorize and therefore less likely to be cited in a recommendation query.</p>
+
+  <p>Practice area specificity also drives visibility. A firm that clearly, repeatedly, and verifiably focuses on personal injury in a named geographic market performs better in AI recommendations than a general practice firm with a long services list. AI engines are pattern matchers. The clearer your signal, the more reliably they return it.</p>
+
+  <p>Finally, citation patterns matter. When other authoritative sources link to or reference your firm in context, AI engines treat that as a verification signal. Avvo profiles, Martindale-Hubbell ratings, local news coverage, and legal association listings all contribute to your citation footprint.</p>
+
+  <h2>The Gap Most Firms Do Not Know Exists</h2>
+
+  <p>The troubling part of AI visibility is that the gap between visible and invisible firms is not obvious from the outside. A firm can have a well-designed website, a strong Google reviews score, and consistent paid search spend while still generating no citations in AI search responses.</p>
+
+  <p>The gaps we see most often fall into four categories.</p>
+
+  <p>Schema and structured data are missing or incorrect. Many law firm websites were built before schema markup became relevant. Without legal entity schema, attorney schema, or service schema, AI engines have to guess what the firm does and where it operates.</p>
+
+  <p>The firm's content does not signal geographic specificity clearly enough. Writing that says "we serve clients throughout the state" is less useful to an AI engine than content that repeatedly ties the firm's practice to named cities and counties. AI models match queries to geography. Vague content produces vague citations.</p>
+
+  <p>External citation coverage is thin. Many firms have a basic Avvo profile and nothing else in third-party directories. Perplexity and ChatGPT browsing tools look for corroborating sources. A single directory listing is not enough to establish the pattern of authority they look for.</p>
+
+  <p>AI-specific content is absent. None of the five major AI platforms (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) have been prompted with the firm's specific positioning. There is no content designed to answer the questions these platforms receive about personal injury representation in the firm's market.</p>
+
+  <h2>How to Audit Your Firm's AI Visibility</h2>
+
+  <p>The starting point is direct observation. Open ChatGPT, Perplexity, and Google AI Overviews and run the queries a prospective client in your market would run. Ask for a personal injury lawyer recommendation in your city. Ask who handles car accident cases in your county. Ask which firms have the strongest track record for your primary case type.</p>
+
+  <p>Record which firms appear and how they are described. Note whether your firm appears at all. If you appear, examine the language the AI uses to describe you. Does it reflect your current positioning, or is it pulling from outdated or incomplete information?</p>
+
+  <p>Then examine the gap between firms that appear and your firm. What external citations do those firms have that you do not? What structured data are they using? What content exists on their site that directly addresses the queries you tested?</p>
+
+  <p>This is the foundation of an AI visibility audit: a documented comparison of where you stand against who is getting cited, followed by a prioritized list of what to address first.</p>
+
+  <div class="cta-block">
+    <div class="cta-label">The Audit by LogicRove</div>
+    <h3>Find out exactly where your firm stands in AI search</h3>
+    <p>A 12 to 18 page investigative report covering your citation share of voice across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews versus named competitors in your market. Delivered in 48 hours.</p>
+    <a href="https://buy.stripe.com/00waEPgK63Xib7Z36H38401" class="btn">Order The Audit · $497</a>
+  </div>
+
+  <h2>What the Fix Actually Looks Like</h2>
+
+  <p>Improving AI visibility for a law firm is not a technical overhaul. It is a structured content and authority project. The work falls into three phases.</p>
+
+  <p>First, close the structured data gaps. Add or correct legal entity schema, attorney schema, and service schema across every page on the firm's site. This work is typically a few hours for a developer but produces lasting signal improvement.</p>
+
+  <p>Second, build the external citation footprint. This means ensuring the firm is listed, with consistent information, across every major legal directory, and that the firm's attorneys appear in relevant association databases, published articles, and local media. Each citation source adds a verification node that AI engines can check against your own content.</p>
+
+  <p>Third, create AI-targeted content. Write practice area pages that directly address the queries AI engines receive. Not marketing copy. Information-dense content that demonstrates expertise in specific case types in specific geographies, written in the language a prospective client would use when asking an AI for a recommendation.</p>
+
+  <p>Done correctly, this work compounds. Each improvement to your structured data, citation footprint, and content library increases the probability that AI engines name you when the right query comes in.</p>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is AI visibility for law firms?</div>
+      <p class="faq-a">AI visibility refers to how personal injury law firms appear when AI search engines like ChatGPT, Perplexity, and Google AI Overviews are asked to recommend legal representation. A firm with strong AI visibility gets cited by name when prospects ask AI for a lawyer recommendation. A firm with poor AI visibility is invisible in those responses even if it ranks well on traditional Google search.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is AI search different from Google rankings?</div>
+      <p class="faq-a">Yes. Google rankings measure where your website appears in a list of search results. AI visibility measures whether AI engines cite your firm when generating a recommendation. A firm can rank on page one of Google and still generate no citations from ChatGPT, Perplexity, or Google AI Overviews. The two systems use different signals and reward different types of content and authority.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I know if my law firm is being recommended by ChatGPT?</div>
+      <p class="faq-a">The most direct method is to run the queries a prospective client in your market would run: "best personal injury lawyer in [city]," "who handles car accidents in [county]," or "top-rated PI firm near me." Run these across ChatGPT, Perplexity, Gemini, and Google AI Overviews, and document which firms appear. If your firm does not appear, you have an AI visibility gap. A formal audit maps this gap in detail against your named competitors.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does an AI visibility audit cover?</div>
+      <p class="faq-a">The LogicRove Audit covers citation share of voice across five AI platforms, a comparison of your firm's AI representation versus named competitors, schema and structured data gaps, external citation coverage analysis, and a prioritized list of fixes ranked by expected impact. The report is 12 to 18 pages and is delivered within 48 hours.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How much does an AI visibility audit cost?</div>
+      <p class="faq-a">The LogicRove Audit is $497 as a one-time report. There is no retainer and no ongoing subscription requirement. The audit is a standalone deliverable: a written investigation of your firm's current AI visibility with a prioritized fix list you can act on immediately or hand to your marketing team.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <a href="https://logicrove.com">LogicRove</a> &nbsp;·&nbsp; AI Search Visibility Research &nbsp;·&nbsp; <a href="mailto:hello@logicrove.com">hello@logicrove.com</a>
+</footer>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AI visibility for law firms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI visibility refers to how personal injury law firms appear when AI search engines like ChatGPT, Perplexity, and Google AI Overviews are asked to recommend legal representation. A firm with strong AI visibility gets cited by name when prospects ask AI for a lawyer recommendation. A firm with poor AI visibility is invisible in those responses even if it ranks well on traditional Google search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AI search different from Google rankings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Google rankings measure where your website appears in a list of search results. AI visibility measures whether AI engines cite your firm when generating a recommendation. A firm can rank on page one of Google and still generate no citations from ChatGPT, Perplexity, or Google AI Overviews. The two systems use different signals and reward different types of content and authority."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my law firm is being recommended by ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most direct method is to run the queries a prospective client in your market would run: best personal injury lawyer in your city, who handles car accidents in your county, or top-rated PI firm near me. Run these across ChatGPT, Perplexity, Gemini, and Google AI Overviews, and document which firms appear. If your firm does not appear, you have an AI visibility gap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does an AI visibility audit cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The LogicRove Audit covers citation share of voice across five AI platforms, a comparison of your firm's AI representation versus named competitors, schema and structured data gaps, external citation coverage analysis, and a prioritized list of fixes ranked by expected impact. The report is 12 to 18 pages and delivered within 48 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does an AI visibility audit cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The LogicRove Audit is $497 as a one-time report. There is no retainer and no ongoing subscription required. The audit is a standalone deliverable: a written investigation of your firm's current AI visibility with a prioritized fix list."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Visibility for Law Firms: Why ChatGPT Recommends Your Competitors",
+  "description": "When a prospect asks ChatGPT or Perplexity to recommend a personal injury lawyer in your city, is your firm showing up? Learn how AI visibility works for law firms and how to fix it.",
+  "author": {
+    "@type": "Organization",
+    "name": "LogicRove",
+    "url": "https://logicrove.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LogicRove",
+    "url": "https://logicrove.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://logicrove.com/LogicRoveLogoTransparent.png"
+    }
+  },
+  "datePublished": "2026-05-12",
+  "dateModified": "2026-05-12",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://logicrove.com/blog/ai-visibility-for-law-firms.html"
+  }
+}
+</script>
+
+</body>
+</html>
