@@ -3,210 +3,433 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google AI Overviews for Law Firms: Is Your Firm in the Answer?</title>
-<meta name="description" content="When Google shows an AI Overview for a personal injury lawyer in your city, does it name your firm or a competitor? Learn how AI Overviews choose firms and how to get cited.">
+<title>Google AI Overviews for Law Firms: Why Your Firm Is Missing | LogicRove</title>
+<meta name="description" content="When someone Googles a personal injury lawyer in your city, an AI Overview may answer before any link. Learn why your firm is left out of Google's AI answer and how to get named.">
 <link rel="canonical" href="https://logicrove.com/blog/google-ai-overviews-law-firms.html">
-<meta property="og:title" content="Google AI Overviews for Law Firms: Is Your Firm in the Answer?">
-<meta property="og:description" content="How Google AI Overviews decide which personal injury firms to name, why most firms are left out, and how to find out where you stand.">
+
+<meta property="og:title" content="Google AI Overviews for Law Firms: Why Your Firm Is Missing From the Answer">
+<meta property="og:description" content="Google now answers legal searches with an AI summary that names a few firms above the links. Here is why yours may be absent, and what it takes to get cited.">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://logicrove.com/LogicRoveLogoTransparent.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root{
---cream:#f5f3ec;
---navy:#0b1d3a;
---gold:#c9a863;
---ink:#1a2438;
---muted:#54607a;
---line:#e2ddcf;
+:root {
+--cream: #F6F1E6;
+--cream-deep: #EFE7D5;
+--ink: #141414;
+--ink-soft: #3A3632;
+--navy: #0F2340;
+--navy-soft: #1B3458;
+--gold: #A67C3A;
+--gold-pale: #D4B56B;
+--rule: #D3C9B3;
+--rule-soft: #E5DDCA;
 }
-*{box-sizing:border-box;}
-body{
-margin:0;
-background:var(--cream);
-color:var(--ink);
-font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-line-height:1.65;
-font-size:18px;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+background: var(--cream);
+color: var(--ink);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+font-size: 17px;
+line-height: 1.6;
+font-weight: 400;
+-webkit-font-smoothing: antialiased;
 }
-header.site{
-background:var(--navy);
-color:var(--cream);
-padding:18px 24px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+
+.topbar {
+border-bottom: 1px solid var(--rule);
+padding: 14px 0;
+background: var(--cream);
+position: sticky;
+top: 0;
+z-index: 50;
 }
-header.site a.brand{
-color:var(--cream);
-text-decoration:none;
-font-weight:700;
-letter-spacing:.5px;
-font-size:20px;
+
+.topbar-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 1120px;
+margin: 0 auto;
+padding: 0 40px;
 }
-header.site a.brand span{color:var(--gold);}
-header.site nav a{
-color:var(--cream);
-text-decoration:none;
-margin-left:22px;
-font-size:15px;
-opacity:.9;
+
+.mark {
+display: flex;
+align-items: center;
+gap: 14px;
+font-family: 'Fraunces', serif;
+font-size: 26px;
+font-weight: 500;
+color: var(--navy);
+letter-spacing: -0.01em;
+text-decoration: none;
 }
-.wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px;}
-.eyebrow{
-font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-text-transform:uppercase;
-letter-spacing:2px;
-font-size:12px;
-color:var(--gold);
-margin-bottom:14px;
+
+.mark img { height: 60px; width: auto; }
+
+.topnav {
+display: flex;
+gap: 28px;
+align-items: center;
+font-size: 14px;
 }
-h1{
-font-family:'Fraunces',Georgia,'Times New Roman',serif;
-font-weight:600;
-font-size:42px;
-line-height:1.15;
-color:var(--navy);
-margin:0 0 18px;
+
+.topnav a {
+color: var(--ink-soft);
+font-weight: 500;
+text-decoration: none;
 }
-h2{
-font-family:'Fraunces',Georgia,serif;
-font-weight:600;
-font-size:27px;
-color:var(--navy);
-margin:44px 0 14px;
+
+.topnav a.topcta {
+background: var(--navy);
+color: var(--cream);
+padding: 11px 20px;
+border-radius: 2px;
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 0.01em;
+transition: background 0.2s;
 }
-p{margin:0 0 18px;}
-.lede{font-size:21px;color:var(--ink);}
-ul{margin:0 0 18px;padding-left:22px;}
-li{margin-bottom:10px;}
-a{color:#1b4f8a;}
-.meta{color:var(--muted);font-size:14px;margin-bottom:36px;font-family:'JetBrains Mono',monospace;}
-.cta{
-background:var(--navy);
-color:var(--cream);
-border-radius:14px;
-padding:34px 32px;
-margin:48px 0;
-text-align:center;
+
+.topnav a.topcta:hover { background: var(--gold); }
+
+.article-wrap {
+max-width: 740px;
+margin: 0 auto;
+padding: 72px 40px 100px;
 }
-.cta h3{
-font-family:'Fraunces',Georgia,serif;
-font-size:25px;
-margin:0 0 10px;
-color:#fff;
+
+.eyebrow {
+font-family: 'Inter', sans-serif;
+font-size: 11px;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.22em;
+color: var(--gold);
+margin-bottom: 20px;
 }
-.cta p{color:#cdd4e2;margin:0 auto 22px;max-width:520px;}
-.btn{
-display:inline-block;
-background:var(--gold);
-color:var(--navy);
-font-weight:700;
-text-decoration:none;
-padding:15px 30px;
-border-radius:9px;
-font-size:17px;
+
+h1 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(34px, 4.5vw, 56px);
+line-height: 1.05;
+font-weight: 300;
+letter-spacing: -0.025em;
+color: var(--navy);
+font-variation-settings: "opsz" 144;
+margin-bottom: 28px;
 }
-.btn:hover{filter:brightness(1.05);}
-.faq dt{font-weight:700;color:var(--navy);margin-top:20px;}
-.faq dd{margin:6px 0 0;padding:0;color:var(--ink);}
-.related{border-top:1px solid var(--line);margin-top:54px;padding-top:24px;}
-.related h2{margin-top:0;}
-footer{
-border-top:1px solid var(--line);
-padding:28px 24px;
-text-align:center;
-color:var(--muted);
-font-size:14px;
+
+.lede {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(17px, 1.6vw, 21px);
+line-height: 1.65;
+font-weight: 300;
+color: var(--ink-soft);
+font-variation-settings: "opsz" 72;
+margin-bottom: 48px;
+padding-bottom: 40px;
+border-bottom: 1px solid var(--rule);
 }
-footer a{color:var(--muted);}
-@media(max-width:600px){
-h1{font-size:32px;}
-body{font-size:17px;}
-header.site nav a{margin-left:14px;}
+
+.article-meta {
+font-size: 13px;
+color: var(--gold);
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-family: 'JetBrains Mono', monospace;
+margin-bottom: 12px;
+}
+
+h2 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(24px, 2.8vw, 34px);
+line-height: 1.12;
+font-weight: 400;
+color: var(--navy);
+font-variation-settings: "opsz" 72;
+margin: 56px 0 20px;
+}
+
+h3 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: 21px;
+font-weight: 500;
+color: var(--navy);
+font-variation-settings: "opsz" 36;
+margin: 36px 0 14px;
+}
+
+p {
+color: var(--ink-soft);
+margin-bottom: 20px;
+line-height: 1.7;
+}
+
+ul, ol {
+color: var(--ink-soft);
+margin: 0 0 24px 24px;
+line-height: 1.7;
+}
+
+li { margin-bottom: 8px; }
+
+a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--rule); }
+a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+.callout {
+background: var(--cream-deep);
+border-left: 3px solid var(--gold);
+padding: 24px 28px;
+margin: 36px 0;
+border-radius: 0 2px 2px 0;
+}
+
+.callout p {
+margin: 0;
+font-family: 'Fraunces', serif;
+font-size: 19px;
+line-height: 1.55;
+font-variation-settings: "opsz" 72;
+font-weight: 300;
+color: var(--navy);
+}
+
+.cta-block {
+background: var(--navy);
+color: var(--cream);
+padding: 48px 44px;
+border-radius: 3px;
+margin: 56px 0;
+text-align: center;
+}
+
+.cta-block .cta-label {
+font-family: 'JetBrains Mono', monospace;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold-pale);
+margin-bottom: 16px;
+}
+
+.cta-block h3 {
+font-family: 'Fraunces', serif;
+font-size: clamp(22px, 2.4vw, 30px);
+font-weight: 300;
+color: var(--cream);
+font-variation-settings: "opsz" 72;
+margin: 0 0 14px;
+}
+
+.cta-block p {
+color: rgba(246,241,230,0.72);
+font-size: 15px;
+margin: 0 0 28px;
+max-width: 480px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.cta-block a.btn {
+display: inline-block;
+background: var(--gold);
+color: var(--cream);
+padding: 15px 32px;
+border-radius: 2px;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: 0.04em;
+text-decoration: none;
+transition: background 0.2s;
+}
+
+.cta-block a.btn:hover { background: var(--gold-pale); color: var(--navy); }
+
+.faq-section { margin-top: 60px; }
+
+.faq-item {
+border-top: 1px solid var(--rule);
+padding: 28px 0;
+}
+
+.faq-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.faq-q {
+font-family: 'Fraunces', serif;
+font-size: 19px;
+font-weight: 400;
+color: var(--navy);
+font-variation-settings: "opsz" 36;
+margin-bottom: 10px;
+}
+
+.faq-a { color: var(--ink-soft); line-height: 1.7; margin: 0; }
+
+.site-footer {
+border-top: 1px solid var(--rule);
+padding: 40px 0;
+text-align: center;
+font-size: 13px;
+color: var(--gold);
+font-family: 'JetBrains Mono', monospace;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+.site-footer a { color: var(--navy); text-decoration: none; }
+.site-footer a:hover { color: var(--gold); }
+
+@media (max-width: 600px) {
+.article-wrap { padding: 48px 24px 80px; }
+.topbar-inner { padding: 0 20px; }
+.cta-block { padding: 36px 24px; }
+.topnav { gap: 16px; }
 }
 </style>
 </head>
 <body>
-<header class="site">
-<a class="brand" href="https://logicrove.com">LOGIC<span>ROVE</span></a>
-<nav>
-<a href="https://logicrove.com">Home</a>
+
+<nav class="topbar">
+<div class="topbar-inner">
+<a href="https://logicrove.com" class="mark">
+<img src="/LogicRoveLogoTransparent.png" alt="LogicRove">
+</a>
+<div class="topnav">
+<a href="https://logicrove.com/#audit">The Audit</a>
 <a href="https://logicrove.com/blog">Journal</a>
+<a href="https://buy.stripe.com/14A6ozeBYdxS3FxgXx38406" class="topcta">Get a Snapshot &middot; $49</a>
+</div>
+</div>
 </nav>
-</header>
 
-<main class="wrap">
-<article>
-<div class="eyebrow">AI Visibility Research</div>
-<h1>Google AI Overviews for Law Firms: Why Your Personal Injury Firm Is Missing</h1>
-<div class="meta">By LogicRove. Last updated June 2026.</div>
+<main class="article-wrap">
 
-<p class="lede">A prospect in your city searches Google for a personal injury lawyer. Before a single blue link loads, an AI Overview appears at the top of the page and names a few firms. If yours is not one of them, the search is often over before your website ever had a chance to load.</p>
+<div class="eyebrow">AI Search Visibility Research</div>
+<div class="article-meta">LogicRove &nbsp;&middot;&nbsp; July 2026</div>
 
-<p>Google AI Overviews are the boxed answer Google now generates above the regular results. For a law firm, that box is the new front page. It summarizes the question, names a handful of firms or sources it trusts, and pulls the reader's attention away from everything below it. The firms inside the box get seen. The firms beneath it increasingly do not.</p>
+<h1>Google AI Overviews for Law Firms: Why Your Firm Is Missing From the Answer</h1>
+
+<p class="lede">When an injured person in your city searches Google for a personal injury lawyer, they may never reach the list of blue links. Above the results, an AI Overview writes the answer for them, and it sometimes names a few firms by name. If yours is not one of them, the case is often decided before your website ever loads.</p>
+
+<p>Most managing partners still measure success by where they rank on Google. That ruler no longer captures what is happening at the top of the page. Google now places a generated summary above the organic results on a large and growing share of searches. The prospect reads the summary, absorbs the names inside it, and frequently stops there. The ten blue links you spent years climbing are now below the fold, below the answer, and below the moment the decision gets made.</p>
+
+<p>For a personal injury firm spending five to twenty thousand dollars a month on marketing, this is not a small shift. It is a new gatekeeper sitting between your firm and every prospect who starts on Google.</p>
 
 <h2>What a Google AI Overview Actually Is</h2>
-<p>An AI Overview is Google's generated answer to a search, written by its own models and placed before the organic listings. Ask Google who the best car accident lawyer near you is, and instead of ten links you may get a paragraph that explains what to look for and points to specific firms, directories, and articles. The reader gets a verdict, not a list.</p>
-<p>This matters more for law than for almost any other field. Legal questions are urgent and emotional, so people want a trusted answer rather than a page of options to compare. When Google hands them one, many stop reading there. Your decades of trial results and your wall of five star reviews never enter the picture, because the prospect never scrolled far enough to find them.</p>
 
-<h2>How Often Prospects See the Overview Before They See You</h2>
-<p>This is not a fringe behavior anymore. By early 2026, Google AI Overviews were appearing on roughly one in four searches, close to double their share a year earlier, according to Conductor's review of nearly 22 million queries. Informational queries, the kind an injured person types when they are still deciding what to do, trigger them even more often.</p>
-<p>At the same time, the share of Google searches that end without any click to a website has climbed toward two thirds, by widely cited 2026 analyses of search behavior. Put those two trends together and the conclusion is plain. A growing number of prospects read the AI answer, form an opinion, and act, all without visiting a single firm's site. If you are not named in the answer, you were never in the running.</p>
+<p>An AI Overview is the boxed summary Google generates at the top of a search result, drawn from across the web and written in a few confident sentences. For an informational query it explains a concept. For a query with commercial intent, such as someone looking for a lawyer, it can summarize what to look for and point to specific firms and sources.</p>
 
-<h2>How Google Decides Which Firms Go in the Overview</h2>
-<p>The Overview is not random, and it is not simply the firm that ranks number one. Google's model assembles its answer from sources it can read clearly and trust, then names the firms those sources keep confirming. A few signals do most of the deciding.</p>
-<p>It favors firms that show up consistently across independent places, not just on their own website. A firm cited in a legal directory, a local bar listing, a news mention, and its own clearly written pages reads as real and established. A firm that exists only on its own site reads as a single unverified claim.</p>
-<p>It favors structured, machine readable sites. Schema markup tells Google plainly what your firm does, where it practices, who the attorneys are, and what reviews you hold. Without it, the model has to guess, and guesses get left out of a confident answer.</p>
-<p>It favors clear geographic and practice focus. Content that repeatedly and specifically ties your firm to named cities and case types is easy for a model to match to a local query. Vague language about serving clients everywhere gives it nothing to grab.</p>
+<p>The important part is placement. The overview sits above everything else. Independent trackers across the SEO industry in 2026 have put AI Overview presence anywhere from roughly a quarter of all Google searches to nearly half, depending on the query set and how each study measures it, and the coverage has climbed steadily year over year. Whatever the exact figure, the direction is not in dispute. The answer is moving up, and the links are moving down.</p>
 
-<h2>Why Your Firm Gets Left Out</h2>
-<p>Most firms that are missing from AI Overviews are not missing because the work is bad. They are missing for a few quiet, fixable reasons.</p>
-<ul>
-<li><strong>The site has little or no schema.</strong> Many firm sites were built before structured data mattered, so Google cannot read the firm cleanly enough to cite it with confidence.</li>
-<li><strong>The outside footprint is thin.</strong> A lone directory profile is not enough corroboration. The model looks for a pattern of independent confirmation, and one source does not make a pattern.</li>
-<li><strong>The content is written for brochures, not answers.</strong> Pages that sell rather than explain give the model nothing clean to lift into an answer.</li>
-<li><strong>The geography is fuzzy.</strong> When the site never commits to specific cities and counties, the firm does not match the local question the prospect actually asked.</li>
-</ul>
-
-<div class="cta">
-<h3>See whether AI names your firm or a competitor</h3>
-<p>An AI Visibility Snapshot shows you whether ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews name your firm or a competitor when a prospect asks for a lawyer in your city. Researched and hand reviewed, delivered within 48 hours.</p>
-<a class="btn" href="https://buy.stripe.com/14A6ozeBYdxS3FxgXx38406">Get your Snapshot for $49</a>
+<div class="callout">
+<p>Ranking first used to mean being seen first. Now the AI Overview is seen first, and your ranking is what the reader scrolls past on the way to something they may never reach.</p>
 </div>
 
-<h2>How to Check Where You Stand Today</h2>
-<p>You can get a rough read in a few minutes. Open Google in a private window so your own history does not skew the result, then search the way a prospect would. Try the best personal injury lawyer in your city, who handles car accidents in your county, and top rated injury firm near me. Watch whether an AI Overview appears, and note which firms it names.</p>
-<p>Run each query a few times, because the answer shifts. If your firm never appears while the same two or three competitors keep getting named, you have found the gap. What the quick test cannot tell you is why those firms win the citation and which fix moves the needle first. Answering that means reading the sources behind each Overview and comparing your signals to the firms beating you. That is the work LogicRove does.</p>
+<h2>Why This Hits Personal Injury Firms Especially Hard</h2>
 
-<div class="related">
-<h2>The Overview Is One Surface. The Pattern Is Bigger.</h2>
-<p>Google AI Overviews are only one place this is happening. The same dynamic plays out inside ChatGPT, Claude, and Perplexity, where prospects ask for a lawyer and get a named recommendation instead of a list. If you want the wider view, read our guide to <a href="https://logicrove.com/blog.html">generative engine optimization for law firms</a> and our breakdown of <a href="https://logicrove.com/blog/ai-visibility-for-law-firms.html">why ChatGPT recommends your competitors</a>. For the full, market specific picture across every surface, the <a href="https://logicrove.com">LogicRove Audit</a> maps your citation share of voice against named rivals with a prioritized fix list.</p>
+<p>Two things make legal search unusually exposed to this change. The first is intent. A person looking for a personal injury lawyer is anxious, often in pain, and wants to be told what to do. A summary that says here is what matters and here are firms that fit is exactly the reassurance they are looking for. They lean on it.</p>
+
+<p>The second is money. Because legal cases are valuable, the marketing around them is expensive and crowded, which means the difference between being named in the answer and being absent from it is measured in signed cases, not in traffic. A single motor vehicle case can be worth more than a year of ad spend. Losing your place in the answer is not a vanity metric. It is lost intake.</p>
+
+<h2>The Click You Used to Win Now Happens Less Often</h2>
+
+<p>The overview does not only reorder the page. It absorbs the click. When the answer is already on the screen, fewer people travel to any website at all. Ahrefs, studying a large sample of queries, found that when an AI Overview is present, clicks to the top organic result fall by roughly a third. SparkToro's 2026 analysis of Google search behavior found that fewer than one in three searches now ends in a click to the open web at all.</p>
+
+<p>Read those two findings together and the picture is stark. More of the answer is being resolved on Google's own page, and of the shrinking number of people who do click through, they click on whatever the overview surfaced first. If your firm is not inside that summary, you are competing for a slice of attention that is smaller every quarter.</p>
+
+<h2>Why Google's AI Names One Firm and Not Another</h2>
+
+<p>An AI Overview is not pulling names out of thin air, and it is not simply reading the current rankings. It assembles an answer from what it can confidently understand about the entities involved. For a law firm, that understanding is built from a handful of signals that either line up or do not.</p>
+
+<p>The first is entity clarity. Google has to be sure which firm you are. The same name, address, and practice areas repeated identically across your site, your directory listings, and third party sources tell it you are a single, real, consistent entity. Conflicting or thin information makes you a firm it would rather not vouch for out loud.</p>
+
+<p>The second is structured data. Schema markup for a legal service, an attorney, and reviews spells out for Google what you do, where you do it, and who leads the work. Many firm sites were built before this markup mattered and still run without it. That absence forces the model to guess, and it tends not to name the firms it has to guess about.</p>
+
+<p>The third is geographic specificity. An overview answering a query about a named city favors firms whose content ties them clearly and repeatedly to that city and county. Copy that says we serve clients statewide reads as vague. Copy that names the metro, the courts, and the roads where cases happen reads as local and specific, and specificity is what a location query rewards.</p>
+
+<p>The fourth is third party confirmation. Google trusts a firm more when independent sources agree it matters. Bar association pages, established legal directories, reputable local coverage, and consistent review profiles all act as outside votes. A firm with a large website but no external footprint has told Google only its own side of the story.</p>
+
+<h2>How This Relates to ChatGPT and Perplexity</h2>
+
+<p>Google AI Overviews are one surface in a wider shift. When a prospect skips Google entirely and asks ChatGPT, Claude, or Perplexity for a lawyer, the same underlying question decides your fate: does the model understand and trust your firm enough to say its name. The surfaces differ in mechanics, but the signals that earn a mention rhyme across all of them.</p>
+
+<p>We cover the assistant side of this in <a href="https://logicrove.com/blog.html">generative engine optimization for law firms</a>, and the broader diagnosis of the gap in <a href="https://logicrove.com/blog/ai-visibility-for-law-firms.html">why ChatGPT recommends your competitors</a>. AI Overviews are the piece of the shift that shows up inside the search bar your prospects already use every day, which is why they tend to be the first place a firm discovers it has gone quiet.</p>
+
+<h2>How to Check Whether You Appear in AI Overviews Right Now</h2>
+
+<p>You can run a rough test in a few minutes. On a browser where you are not signed into your own firm's Google account, search the queries a real prospect would use. Try best personal injury lawyer in your city. Try who to call after a car accident in your county. Try top rated injury attorney near me from a phone in your market.</p>
+
+<p>Watch what forms at the very top. Does an AI Overview appear. Does it name firms. Is yours among them, or is it a set of competitors while you sit in the links underneath. Run each query a few times, because the overview varies, and note the pattern rather than a single result.</p>
+
+<p>That test will tell you whether you have a problem. What it will not tell you is why the named firms are being chosen, which of your signals are weak, and which fix would move you first. Answering that means looking at the sources behind the overview and comparing your entity, schema, and citation footprint against the firms winning the slot. That comparison is the work.</p>
+
+<div class="cta-block">
+<div class="cta-label">AI Visibility Snapshot by LogicRove</div>
+<h3>See whether AI names your firm or a competitor in your city</h3>
+<p>The Snapshot runs the real prospect queries across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews, names the competitors appearing instead of you, and identifies the single highest impact fix. Researched and hand reviewed, delivered within 48 hours.</p>
+<a href="https://buy.stripe.com/14A6ozeBYdxS3FxgXx38406" class="btn">Get your Snapshot for $49</a>
 </div>
 
+<h2>What Getting Named Actually Takes</h2>
+
+<p>Earning a place in an AI Overview is not a rewrite of your website. It is a focused effort on the signals the model reads, and the work falls into three parts.</p>
+
+<p>Close the structured data gaps first. Add or correct legal service, attorney, and review schema across the site so Google can categorize you without guessing. For most firms this is a few hours of developer time and it produces lasting signal.</p>
+
+<p>Build the outside footprint next. Make sure your firm appears with identical information across the major legal directories, that your attorneys show up in association databases and credible local coverage, and that your review profiles are consistent. Every one of those is an outside vote Google can check against your own pages.</p>
+
+<p>Then make your content local and specific. Write practice area and location pages that name the cities, counties, and case types you actually handle, in the plain language a prospect would use when they ask. Specific, verifiable, locally grounded content is what a location query rewards.</p>
+
+<p>Done in that order, the work compounds. Each improvement to your entity clarity, structured data, footprint, and content raises the odds that the next overview in your market speaks your name instead of a competitor's.</p>
+
+<div class="faq-section">
 <h2>Frequently Asked Questions</h2>
-<dl class="faq">
-<dt>What are Google AI Overviews for law firms?</dt>
-<dd>An AI Overview is the answer Google generates and places above the regular search results. For a law firm, it is the boxed summary that may name specific firms when a prospect searches for legal help, deciding who gets seen before the organic listings load.</dd>
 
-<dt>Why is my law firm not showing up in Google AI Overviews?</dt>
-<dd>Usually because Google cannot read or corroborate your firm clearly enough to name it. The common causes are missing schema markup, a thin presence across independent sources, brochure style content, and vague geographic focus.</dd>
+<div class="faq-item">
+<div class="faq-q">What is a Google AI Overview for a law firm?</div>
+<p class="faq-a">A Google AI Overview is the generated summary that can appear at the top of a Google search, above the organic links. For a legal query it may explain what to look for in a lawyer and name specific firms. If your firm is named, prospects see it before any link. If it is not, they may never scroll far enough to find you.</p>
+</div>
 
-<dt>Are AI Overviews different from regular Google rankings?</dt>
-<dd>Yes. Ranking measures where your page sits in the list of links. An AI Overview is a generated answer that may name a few firms and end the search. A firm can rank well and still be absent from the Overview, because the two systems reward different signals.</dd>
+<div class="faq-item">
+<div class="faq-q">Why is my firm not showing up in Google AI Overviews?</div>
+<p class="faq-a">Usually because the signals Google relies on to name a firm are weak or inconsistent. Common causes are missing legal schema markup, an inconsistent business name and address across the web, vague geographic content that does not tie you clearly to your city, and a thin footprint on outside directories and review sites. The overview tends to name firms it can verify with confidence.</p>
+</div>
 
-<dt>How do I check if my firm appears in Google AI Overviews?</dt>
-<dd>Search in a private window for the queries a real prospect would use, with your city included, and note whether an Overview appears and which firms it names. Run each a few times since answers vary. A LogicRove Snapshot analyzes the sources behind each answer to show why competitors get cited and you do not.</dd>
+<div class="faq-item">
+<div class="faq-q">Are Google AI Overviews different from ChatGPT recommendations?</div>
+<p class="faq-a">They are separate surfaces but they reward similar things. An AI Overview appears inside Google search, while ChatGPT, Claude, and Perplexity answer inside their own apps. All of them decide which firm to name based on how clearly they understand your firm and how much independent evidence supports it, so improving one usually helps the others.</p>
+</div>
 
-<dt>What does it cost to find out where my firm stands?</dt>
-<dd>A LogicRove AI Visibility Snapshot is $49 and is delivered within 48 hours, researched and hand reviewed. It shows whether AI assistants and Google AI Overviews name your firm or a competitor in your city.</dd>
-</dl>
+<div class="faq-item">
+<div class="faq-q">Do AI Overviews really reduce clicks to law firm websites?</div>
+<p class="faq-a">Yes. Independent research in 2026 found that when an AI Overview is present, clicks to the top organic result drop sharply, and the majority of Google searches now end without a click to any website. More of the decision happens on Google's own page, which is why being named inside the overview matters more than ranking below it.</p>
+</div>
 
-<p>The firms that win the next decade of client intake will not be the ones with the loudest ads. They will be the ones Google and the AI assistants trust enough to name. The first step is knowing whether they name you today.</p>
-</article>
+<div class="faq-item">
+<div class="faq-q">How can I find out where my firm stands in AI search?</div>
+<p class="faq-a">A LogicRove AI Visibility Snapshot runs the real prospect queries across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews, documents which firms are named instead of you, and identifies the single highest impact fix. It is $49 and delivered within 48 hours, researched and hand reviewed.</p>
+</div>
+</div>
+
+<p>The firms that win the next decade of client intake will not be the ones with the loudest ads. They will be the ones Google and the assistants trust enough to name inside the answer. The first step is knowing whether that is you today.</p>
+
+<p>Related reading: <a href="https://logicrove.com/blog.html">generative engine optimization for law firms</a> and <a href="https://logicrove.com/blog/ai-visibility-for-law-firms.html">why ChatGPT recommends your competitors</a>. For the full picture across every AI surface and named competitors in your market, see <a href="https://logicrove.com">The LogicRove Audit</a>.</p>
+
 </main>
 
-<footer>
-LogicRove. AI Search Visibility research. <a href="https://logicrove.com">logicrove.com</a>
+<footer class="site-footer">
+<a href="https://logicrove.com">LogicRove</a> &nbsp;&middot;&nbsp; AI Search Visibility Research &nbsp;&middot;&nbsp; <a href="mailto:hello@logicrove.com">hello@logicrove.com</a>
 </footer>
 
 <script type="application/ld+json">
@@ -216,46 +439,76 @@ LogicRove. AI Search Visibility research. <a href="https://logicrove.com">logicr
 "mainEntity": [
 {
 "@type": "Question",
-"name": "What are Google AI Overviews for law firms?",
+"name": "What is a Google AI Overview for a law firm?",
 "acceptedAnswer": {
 "@type": "Answer",
-"text": "An AI Overview is the answer Google generates and places above the regular search results. For a law firm, it is the boxed summary that may name specific firms when a prospect searches for legal help, deciding who gets seen before the organic listings load."
+"text": "A Google AI Overview is the generated summary that can appear at the top of a Google search, above the organic links. For a legal query it may explain what to look for in a lawyer and name specific firms. If your firm is named, prospects see it before any link. If it is not, they may never scroll far enough to find you."
 }
 },
 {
 "@type": "Question",
-"name": "Why is my law firm not showing up in Google AI Overviews?",
+"name": "Why is my firm not showing up in Google AI Overviews?",
 "acceptedAnswer": {
 "@type": "Answer",
-"text": "Usually because Google cannot read or corroborate your firm clearly enough to name it. The common causes are missing schema markup, a thin presence across independent sources, brochure style content, and vague geographic focus."
+"text": "Usually because the signals Google relies on to name a firm are weak or inconsistent. Common causes are missing legal schema markup, an inconsistent business name and address across the web, vague geographic content that does not tie you clearly to your city, and a thin footprint on outside directories and review sites. The overview tends to name firms it can verify with confidence."
 }
 },
 {
 "@type": "Question",
-"name": "Are AI Overviews different from regular Google rankings?",
+"name": "Are Google AI Overviews different from ChatGPT recommendations?",
 "acceptedAnswer": {
 "@type": "Answer",
-"text": "Yes. Ranking measures where your page sits in the list of links. An AI Overview is a generated answer that may name a few firms and end the search. A firm can rank well and still be absent from the Overview, because the two systems reward different signals."
+"text": "They are separate surfaces but they reward similar things. An AI Overview appears inside Google search, while ChatGPT, Claude, and Perplexity answer inside their own apps. All of them decide which firm to name based on how clearly they understand your firm and how much independent evidence supports it, so improving one usually helps the others."
 }
 },
 {
 "@type": "Question",
-"name": "How do I check if my firm appears in Google AI Overviews?",
+"name": "Do AI Overviews really reduce clicks to law firm websites?",
 "acceptedAnswer": {
 "@type": "Answer",
-"text": "Search in a private window for the queries a real prospect would use, with your city included, and note whether an Overview appears and which firms it names. Run each a few times since answers vary. A LogicRove Snapshot analyzes the sources behind each answer to show why competitors get cited and you do not."
+"text": "Yes. Independent research in 2026 found that when an AI Overview is present, clicks to the top organic result drop sharply, and the majority of Google searches now end without a click to any website. More of the decision happens on Google's own page, which is why being named inside the overview matters more than ranking below it."
 }
 },
 {
 "@type": "Question",
-"name": "What does it cost to find out where my firm stands?",
+"name": "How can I find out where my firm stands in AI search?",
 "acceptedAnswer": {
 "@type": "Answer",
-"text": "A LogicRove AI Visibility Snapshot is $49 and is delivered within 48 hours, researched and hand reviewed. It shows whether AI assistants and Google AI Overviews name your firm or a competitor in your city."
+"text": "A LogicRove AI Visibility Snapshot runs the real prospect queries across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews, documents which firms are named instead of you, and identifies the single highest impact fix. It is 49 dollars and delivered within 48 hours, researched and hand reviewed."
 }
 }
 ]
 }
 </script>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Google AI Overviews for Law Firms: Why Your Firm Is Missing From the Answer",
+"description": "Google now answers legal searches with an AI summary that names a few firms above the links. Here is why yours may be absent, and what it takes to get cited.",
+"author": {
+"@type": "Organization",
+"name": "LogicRove",
+"url": "https://logicrove.com"
+},
+"publisher": {
+"@type": "Organization",
+"name": "LogicRove",
+"url": "https://logicrove.com",
+"logo": {
+"@type": "ImageObject",
+"url": "https://logicrove.com/LogicRoveLogoTransparent.png"
+}
+},
+"datePublished": "2026-07-06",
+"dateModified": "2026-07-06",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://logicrove.com/blog/google-ai-overviews-law-firms.html"
+}
+}
+</script>
+
 </body>
 </html>
