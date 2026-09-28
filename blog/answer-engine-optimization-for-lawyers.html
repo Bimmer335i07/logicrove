@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Engine Optimization for Lawyers | LogicRove</title>
+<meta name="description" content="Answer engine optimization for lawyers, explained. How ChatGPT, Perplexity, and Google AI choose which injury firm to name, and how to measure where you stand.">
+<link rel="canonical" href="https://logicrove.com/blog/answer-engine-optimization-for-lawyers.html">
+
+<meta property="og:title" content="Answer Engine Optimization for Lawyers: How Personal Injury Firms Become the Answer">
+<meta property="og:description" content="AEO is not a new label for SEO. Here is how AI answer engines decide which personal injury firm to name, and how to measure whether yours is one of them.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://logicrove.com/LogicRoveLogoTransparent.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--cream: #F6F1E6;
+--cream-deep: #EFE7D5;
+--ink: #141414;
+--ink-soft: #3A3632;
+--navy: #0F2340;
+--navy-soft: #1B3458;
+--gold: #A67C3A;
+--gold-pale: #D4B56B;
+--rule: #D3C9B3;
+--rule-soft: #E5DDCA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+background: var(--cream);
+color: var(--ink);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+font-size: 17px;
+line-height: 1.6;
+font-weight: 400;
+-webkit-font-smoothing: antialiased;
+}
+
+.topbar {
+border-bottom: 1px solid var(--rule);
+padding: 14px 0;
+background: var(--cream);
+position: sticky;
+top: 0;
+z-index: 50;
+}
+
+.topbar-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 1120px;
+margin: 0 auto;
+padding: 0 40px;
+}
+
+.mark {
+display: flex;
+align-items: center;
+gap: 14px;
+font-family: 'Fraunces', serif;
+font-size: 26px;
+font-weight: 500;
+color: var(--navy);
+letter-spacing: -0.01em;
+text-decoration: none;
+}
+
+.mark img { height: 60px; width: auto; }
+
+.topnav {
+display: flex;
+gap: 28px;
+align-items: center;
+font-size: 14px;
+}
+
+.topnav a {
+color: var(--ink-soft);
+font-weight: 500;
+text-decoration: none;
+}
+
+.topnav a.topcta {
+background: var(--navy);
+color: var(--cream);
+padding: 11px 20px;
+border-radius: 2px;
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 0.01em;
+transition: background 0.2s;
+}
+
+.topnav a.topcta:hover { background: var(--gold); }
+
+.article-wrap {
+max-width: 740px;
+margin: 0 auto;
+padding: 72px 40px 100px;
+}
+
+.eyebrow {
+font-family: 'Inter', sans-serif;
+font-size: 11px;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.22em;
+color: var(--gold);
+margin-bottom: 20px;
+}
+
+h1 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(34px, 4.5vw, 56px);
+line-height: 1.05;
+font-weight: 300;
+letter-spacing: -0.025em;
+color: var(--navy);
+font-variation-settings: "opsz" 144;
+margin-bottom: 28px;
+}
+
+.lede {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(17px, 1.6vw, 21px);
+line-height: 1.65;
+font-weight: 300;
+color: var(--ink-soft);
+font-variation-settings: "opsz" 72;
+margin-bottom: 48px;
+padding-bottom: 40px;
+border-bottom: 1px solid var(--rule);
+}
+
+.article-meta {
+font-size: 13px;
+color: var(--gold);
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-family: 'JetBrains Mono', monospace;
+margin-bottom: 12px;
+}
+
+h2 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(24px, 2.8vw, 34px);
+line-height: 1.12;
+font-weight: 400;
+color: var(--navy);
+font-variation-settings: "opsz" 72;
+margin: 56px 0 20px;
+}
+
+h3 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: 21px;
+font-weight: 500;
+color: var(--navy);
+font-variation-settings: "opsz" 36;
+margin: 36px 0 14px;
+}
+
+p {
+color: var(--ink-soft);
+margin-bottom: 20px;
+line-height: 1.7;
+}
+
+ul, ol {
+color: var(--ink-soft);
+margin: 0 0 24px 24px;
+line-height: 1.7;
+}
+
+li { margin-bottom: 8px; }
+
+a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--rule); }
+a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+.callout {
+background: var(--cream-deep);
+border-left: 3px solid var(--gold);
+padding: 24px 28px;
+margin: 36px 0;
+border-radius: 0 2px 2px 0;
+}
+
+.callout p {
+margin: 0;
+font-family: 'Fraunces', serif;
+font-size: 19px;
+line-height: 1.55;
+font-variation-settings: "opsz" 72;
+font-weight: 300;
+color: var(--navy);
+}
+
+.cta-block {
+background: var(--navy);
+color: var(--cream);
+padding: 48px 44px;
+border-radius: 3px;
+margin: 56px 0;
+text-align: center;
+}
+
+.cta-block .cta-label {
+font-family: 'JetBrains Mono', monospace;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold-pale);
+margin-bottom: 16px;
+}
+
+.cta-block h3 {
+font-family: 'Fraunces', serif;
+font-size: clamp(22px, 2.4vw, 30px);
+font-weight: 300;
+color: var(--cream);
+font-variation-settings: "opsz" 72;
+margin: 0 0 14px;
+}
+
+.cta-block p {
+color: rgba(246,241,230,0.72);
+font-size: 15px;
+margin: 0 0 28px;
+max-width: 480px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.cta-block a.btn {
+display: inline-block;
+background: var(--gold);
+color: var(--cream);
+padding: 15px 32px;
+border-radius: 2px;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: 0.04em;
+text-decoration: none;
+transition: background 0.2s;
+}
+
+.cta-block a.btn:hover { background: var(--gold-pale); color: var(--navy); }
+
+.faq-section { margin-top: 60px; }
+
+.faq-item {
+border-top: 1px solid var(--rule);
+padding: 28px 0;
+}
+
+.faq-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.faq-q {
+font-family: 'Fraunces', serif;
+font-size: 19px;
+font-weight: 400;
+color: var(--navy);
+font-variation-settings: "opsz" 36;
+margin-bottom: 10px;
+}
+
+.faq-a { color: var(--ink-soft); line-height: 1.7; margin: 0; }
+
+.site-footer {
+border-top: 1px solid var(--rule);
+padding: 40px 0;
+text-align: center;
+font-size: 13px;
+color: var(--gold);
+font-family: 'JetBrains Mono', monospace;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+.site-footer a { color: var(--navy); text-decoration: none; }
+.site-footer a:hover { color: var(--gold); }
+
+@media (max-width: 600px) {
+.article-wrap { padding: 48px 24px 80px; }
+.topbar-inner { padding: 0 20px; }
+.cta-block { padding: 36px 24px; }
+.topnav { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+<div class="topbar-inner">
+<a href="https://logicrove.com" class="mark">
+<img src="/LogicRoveLogoTransparent.png" alt="LogicRove">
+</a>
+<div class="topnav">
+<a href="https://logicrove.com/#audit">The Audit</a>
+<a href="https://logicrove.com/blog">Journal</a>
+<a href="https://buy.stripe.com/14A6ozeBYdxS3FxgXx38406" class="topcta">Get a Snapshot &middot; $49</a>
+</div>
+</div>
+</nav>
+
+<main class="article-wrap">
+  <div class="eyebrow">AI Search Visibility Research</div>
+  <div class="article-meta">LogicRove &nbsp;·&nbsp; September 2026</div>
+  <h1>Answer Engine Optimization for Lawyers: How Personal Injury Firms Become the Answer</h1>
+
+  <p>A prospect who asks an answer engine for a personal injury lawyer does not get a list to compare. They get an answer. Answer engine optimization for lawyers is the discipline of making your firm part of that answer, across ChatGPT, Claude, Perplexity, Gemini, and Google's own AI results.</p>
+
+  <p>The term gets used loosely. Some agencies sell it as a rebrand of SEO, and some partners dismiss it as the same thing with a new label. Both readings miss what changed. The question a prospect asks has not changed. What changed is who answers it, and how that answerer decides which firms are worth naming.</p>
+
+  <h2>What Answer Engine Optimization Means for a Law Firm</h2>
+
+  <p>An answer engine is any system that responds to a question with a written answer instead of a page of links. ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews, and Google AI Mode all qualify. When the question is about hiring a lawyer, the answer often names firms.</p>
+
+  <p>Answer engine optimization, usually shortened to AEO, is the work of making sure the engine understands your firm well enough, and trusts it enough, to include it in that answer. You will also see the term generative engine optimization, or GEO. In practice the two describe the same goal from slightly different angles. We cover the GEO framing in <a href="https://logicrove.com/blog.html">generative engine optimization for law firms</a>.</p>
+
+  <h2>AEO, SEO, and GEO: Where the Lines Actually Fall</h2>
+
+  <p>Traditional SEO earns a position in a ranked list. The prospect still does the choosing. AEO earns a mention inside the answer itself, where the engine has already done the choosing for them.</p>
+
+  <p>That difference changes what you measure. SEO asks where your page ranks for a keyword. AEO asks how often your firm is named when real prospects ask real questions, and which competitors are named instead. The first metric is a position. The second is a share of voice.</p>
+
+  <div class="callout">
+    <p>SEO asks where you rank. AEO asks whether you are named. A firm can win the first question and lose the second every single day.</p>
+  </div>
+
+  <h2>Ranking on Google No Longer Guarantees You Are the Answer</h2>
+
+  <p>Many partners assume a strong Google ranking carries over into AI answers. The data says that link is weakening. In a <a href="https://ahrefs.com/blog/ai-overview-citations-top-10/" target="_blank" rel="noopener">March 2026 study of 863,000 keyword results</a>, Ahrefs found that only 38 percent of pages cited in Google AI Overviews also ranked in the top 10 for the same query. In its July 2025 analysis, the figure was roughly 76 percent.</p>
+
+  <p>Ahrefs attributes part of that shift to what Google calls query fan out, a technique Google has confirmed in its search documentation. The system splits one search into several related searches, then draws sources from across all of them. For a law firm, that means the engine is not only asking who ranks for car accident lawyer in Dallas. It is also asking, in effect, who explains fault rules clearly, who appears in credible directories, and who shows up when someone asks what to do after a crash on a specific highway.</p>
+
+  <p>The practical lesson is simple. Your best ranking page is no longer your whole footprint. The engine looks wider than your page one results, and so should you.</p>
+
+  <h2>How Answer Engines Choose Which Firm to Name</h2>
+
+  <p>No engine publishes its selection rules for legal recommendations, and anyone who claims to know the exact formula is guessing. What can be observed, by running the same prospect questions repeatedly and studying the sources behind each answer, is a consistent pattern. Engines name firms they can identify with confidence and verify from more than one place. Four factors come up again and again.</p>
+
+  <p><strong>Clarity of identity.</strong> The engine needs to be certain which firm you are. An identical name, address, phone number, and list of practice areas across your site and every listing removes doubt.</p>
+
+  <p><strong>Answerable pages.</strong> Pages that state a direct answer to a real client question in their first few sentences are easier for an engine to lift, quote, and attribute to you.</p>
+
+  <p><strong>Independent corroboration.</strong> Directories, bar resources, local news, and review platforms act as outside witnesses. An engine is far more willing to repeat a claim that several independent sources support.</p>
+
+  <p><strong>Presence beyond your own site.</strong> According to Ahrefs Brand Radar data, YouTube is now the most cited domain in Google AI Overviews, and <a href="https://ahrefs.com/blog/ai-brand-visibility-correlations/" target="_blank" rel="noopener">Ahrefs research on 75,000 brands</a> found YouTube mentions to be the strongest correlating factor with AI Overview visibility. For a firm, a small library of plain answer videos on common case questions is no longer a branding exercise. It is a citation surface.</p>
+
+  <h2>What AEO Looks Like Inside a Personal Injury Firm</h2>
+
+  <p>For most PI firms, AEO is not a new department. It is a change in what the existing marketing team is asked to produce and how its work is judged. Three shifts matter most.</p>
+
+  <p><strong>Write for the question, not the keyword.</strong> Prospects ask engines full questions. How long do I have to file after a crash in my state. Does my own insurance cover me if the other driver has none. What is my case worth. Pages built around those questions, answered plainly and specifically for your state and city, give the engine something worth quoting.</p>
+
+  <p><strong>Treat every listing as part of the website.</strong> Your directory profiles, bar listings, and review pages are read alongside your own pages. Inconsistent details on any one of them weaken the whole picture.</p>
+
+  <p><strong>Change the report card.</strong> If your agency reports rankings and traffic but never tells you how often AI names your firm against named competitors, you are measuring the old game. Ask for citation share of voice by engine and by city, tracked over time.</p>
+
+  <p>For the full order of operations, see our <a href="https://logicrove.com/blog/how-to-get-cited-by-ai-search-law-firms.html">checklist for getting your firm cited by AI search</a>.</p>
+
+  <h2>Why Most AEO Pitches Skip the Measurement</h2>
+
+  <p>Many firms first hear about AEO from an agency offering to fix it on a monthly retainer. Fixing before measuring is backwards. Until you know which engines name you, for which questions, in which city, and who is named instead, there is no way to tell whether any of the work moved anything.</p>
+
+  <p>Answers from these engines also vary from one run to the next. A single screenshot proves very little. A useful baseline runs the same prospect questions across several engines, several times each, and records which firms appear and which sources the engine cites to justify them. That baseline is what every later improvement gets measured against.</p>
+
+  <p>This is the gap LogicRove was built for. LogicRove is a research firm, not an agency. We measure and we report. Your team, or any vendor you choose, does the fixing.</p>
+
+  <div class="cta-block">
+    <div class="cta-label">AI Visibility Snapshot by LogicRove</div>
+    <h3>Get your AEO baseline before anyone sells you a fix</h3>
+    <p>The Snapshot runs real prospect questions across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews for your city, names the competitors appearing instead of you, and identifies the single highest impact fix. Researched and hand reviewed, delivered within 48 hours.</p>
+    <a href="https://buy.stripe.com/14A6ozeBYdxS3FxgXx38406" class="btn">Get your Snapshot for $49</a>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What is answer engine optimization for lawyers?</div>
+      <p class="faq-a">Answer engine optimization, or AEO, is the work of making a law firm clear and credible enough that AI systems such as ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews name it when a prospect asks for a lawyer. The goal is to be part of the answer, not a link below it.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is AEO different from SEO for law firms?</div>
+      <p class="faq-a">Yes. SEO competes for a position in a list of search results. AEO competes to be named inside the written answer an AI engine gives. A 2026 Ahrefs study found that only 38 percent of pages cited in Google AI Overviews also ranked in the top 10 for the same query, so strong rankings alone do not guarantee a mention.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is AEO the same as GEO?</div>
+      <p class="faq-a">The terms overlap heavily. Generative engine optimization, or GEO, emphasizes AI systems that generate text, while AEO emphasizes the answer a prospect receives. For a law firm the practical work and the goal are the same: be the firm the engine names.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I measure AEO results for my firm?</div>
+      <p class="faq-a">Run the questions real prospects ask across several AI engines, several times each, and record which firms are named and which sources are cited. Track how often your firm appears against named competitors, by engine and by city. That citation share of voice is the core AEO metric.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How can I find out if AI engines name my firm today?</div>
+      <p class="faq-a">A LogicRove AI Visibility Snapshot runs real prospect questions across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews for your city, names the firms appearing instead of you, and identifies the single highest impact fix. It is $49 and delivered within 48 hours, researched and hand reviewed.</p>
+    </div>
+  </div>
+
+  <p>Answer engines are already choosing which firms your prospects call. The firms that measure that choice first will be the ones that learn how to change it.</p>
+
+  <p>Related reading: <a href="https://logicrove.com/blog.html">generative engine optimization for law firms</a>, <a href="https://logicrove.com/blog/google-ai-overviews-law-firms.html">Google AI Overviews for law firms</a>, <a href="https://logicrove.com/blog/ai-visibility-for-law-firms.html">why ChatGPT recommends your competitors</a>, and <a href="https://logicrove.com/blog/how-to-get-cited-by-ai-search-law-firms.html">how to get your firm cited by AI search</a>. For the full picture across every engine and named competitors in your market, see <a href="https://logicrove.com">The LogicRove Audit</a>.</p>
+</main>
+
+<footer class="site-footer">
+<a href="https://logicrove.com">LogicRove</a> &nbsp;&middot;&nbsp; AI Search Visibility Research &nbsp;&middot;&nbsp; <a href="mailto:hello@logicrove.com">hello@logicrove.com</a>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is answer engine optimization for lawyers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer engine optimization, or AEO, is the work of making a law firm clear and credible enough that AI systems such as ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews name it when a prospect asks for a lawyer. The goal is to be part of the answer, not a link below it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AEO different from SEO for law firms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. SEO competes for a position in a list of search results. AEO competes to be named inside the written answer an AI engine gives. A 2026 Ahrefs study found that only 38 percent of pages cited in Google AI Overviews also ranked in the top 10 for the same query, so strong rankings alone do not guarantee a mention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AEO the same as GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The terms overlap heavily. Generative engine optimization, or GEO, emphasizes AI systems that generate text, while AEO emphasizes the answer a prospect receives. For a law firm the practical work and the goal are the same: be the firm the engine names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure AEO results for my firm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run the questions real prospects ask across several AI engines, several times each, and record which firms are named and which sources are cited. Track how often your firm appears against named competitors, by engine and by city. That citation share of voice is the core AEO metric."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I find out if AI engines name my firm today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LogicRove AI Visibility Snapshot runs real prospect questions across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews for your city, names the firms appearing instead of you, and identifies the single highest impact fix. It is $49 and delivered within 48 hours, researched and hand reviewed."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Answer Engine Optimization for Lawyers: How Personal Injury Firms Become the Answer",
+  "description": "AEO is not a new label for SEO. Here is how AI answer engines decide which personal injury firm to name, and how to measure whether yours is one of them.",
+  "author": {
+    "@type": "Organization",
+    "name": "LogicRove",
+    "url": "https://logicrove.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LogicRove",
+    "url": "https://logicrove.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://logicrove.com/LogicRoveLogoTransparent.png"
+    }
+  },
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://logicrove.com/blog/answer-engine-optimization-for-lawyers.html"
+  }
+}
+</script>
+
+</body>
+</html>
